@@ -1,0 +1,61 @@
+.custom-header {
+    width: 100%;
+    float: left;
+   position: absolute;
+    z-index: 9;
+}
+.custom-navbar {
+    width: 94%;
+}
+#company-logo {
+    width:163px;
+    float: left;margin-top: 4px;
+}
+
+#company-logo img{
+    width: 163px;
+   
+   
+}
+.custom-navbar .navbar-nav .nav-link {
+    padding: 8px 18px;
+    font-size: 15px; color: #fff;
+}
+
+@media (min-width: 200px) and (max-width: 991px) {
+
+.custom-header {
+    height: 58px;
+}
+.custom-header .navbar-toggler {
+    position: absolute;
+    right: 0px;
+    top: 7px;
+}
+.custom-navbar div#navbarCollapse {
+    background: #5d5c9d;
+    top: 48px;
+    position: relative;
+    z-index: 99;
+    float: right;
+    left: 31px;
+}
+.custom-navbar .navbar-nav .nav-link {
+    text-align: right;
+}
+.custom-navbar .navbar-toggler {
+    color: #fff !important;
+    border-color: #e3e3ff;
+    background: #3a3a73;
+}
+
+}
+ @media (min-width: 200px) and (max-width: 767px) {
+.custom-header .navbar-toggler {
+    top: -26px;
+}
+.custom-navbar div#navbarCollapse {
+    background: #5d5c9d;
+    top: 16px;
+}
+}

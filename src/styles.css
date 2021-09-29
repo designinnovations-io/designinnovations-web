@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+	font-family:CircularStdFont;
+	src: url(assets/fonts/CircularStdFont.otf);
+	font-display: swap;
+}
+
+body{
+    font-family:CircularStdFont; 
+    margin: 0px;
+}
