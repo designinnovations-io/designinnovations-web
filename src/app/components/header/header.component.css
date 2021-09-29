@@ -22,7 +22,6 @@
     padding: 8px 24px;
     font-size: 14px; color: #fff;
     position: relative;
-    
 }
 .nav-active:after {
     width: 16px;
