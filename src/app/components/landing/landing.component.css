@@ -18,7 +18,7 @@ section.banner-section:before {
     position: absolute;
     content: '';
     background: linear-gradient(
-        190deg, #001464, #2560ca, #00acd7) !important;
+        190deg, #001464, #2560ca, #00acd7);
     width: 100%;
     height: 100%;
     top: 0;
@@ -35,4 +35,36 @@ section.banner-section:before {
     width: 100%;
     margin: 0 auto;max-width: 100%;
     height: auto;
+}
+.banner-details {
+    z-index: 9999;
+    position: relative;
+    top: 170px; color: #fff;
+}
+
+img.obejt-image{
+    width: 600px;
+    margin-top: 32px;
+}
+.banner-details h1 {
+    font-size: 48px;
+}
+.banner-details p {
+    font-size: 14px;
+    font-family: Circularnormal;
+    margin-top: 27px;
+    width: 100%;
+    float: left;
+}
+.btn-contact-us {
+    background: #0D2472;
+    color: #fff;
+    width: 250px;
+    padding: 19px 10px;
+    border-radius: 50px;
+    margin-top: 28px;font-size: 16px;
+}
+.btn-contact-us:hover{
+    background: #ffff;
+    color: #0D2472; 
 }

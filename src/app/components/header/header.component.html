@@ -5,26 +5,33 @@
           <div id="company-logo"> <a href=""><img src="assets/images/logo.svg" alt="logo"></a> </div>
         </div>
        
-        <div class="col-md-5 col-sm-12">
+        <div class="col-md-7 col-sm-12">
           <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item"> <a class="nav-link" href="">About</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="">Pricing</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="">Community</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="">Portfolio</a> </li>
+                <li class="nav-item"> <a routerLink="/di-consulting" routerLinkActive="nav-active" class="nav-link" href="">Home</a> </li>
+                <li class="nav-item"> <a routerLink="/" routerLinkActive="" class="nav-link" href="">About</a> </li>
+                <li class="nav-item"> <a routerLink="/" routerLinkActive="" class="nav-link" href="">Pricing</a> </li>
+                <li class="nav-item"> <a routerLink="/" routerLinkActive="" class="nav-link" href="">Products</a> </li>
+                <li class="nav-item"> <a routerLink="/" routerLinkActive="" class="nav-link" href="">News</a> </li>
               </ul>
             </div>
           </nav>
         </div>
-        <div class="col-md-2 col-sm-12 pl-0">
-          <div class="notification">
-            <button class="navbar-toggler" type="button"> <span>6</span> <i class="fas fa-bell"></i> </button>
-          </div>
-          <div class="user-name-list"> <a href="">
-            <p>Philip zlatkin</p>
-            <span><img src="images/avatar.png" alt=""></span> </a> </div>
+        <div class="col-md-3 col-sm-12 pl-0">
+          <ul class="nav justify-content-end search-ul">
+            <li>
+              <div class="search-list">
+               <a href=""><img src="assets/images/Search.svg" alt=""></a>
+              </div>
+            </li>
+            <li class="border-left-li"></li>
+
+            <li>
+              <a href=""><button class="btn btn-dark btn-contact">Contact Us</button></a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

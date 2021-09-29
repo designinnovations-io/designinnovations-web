@@ -3,9 +3,10 @@
     float: left;
    position: absolute;
     z-index: 9;
+    margin-top: 12px;
 }
 .custom-navbar {
-    width: 94%;
+    width: 100%;margin-top: 18px;
 }
 #company-logo {
     width:163px;
@@ -18,10 +19,56 @@
    
 }
 .custom-navbar .navbar-nav .nav-link {
-    padding: 8px 18px;
-    font-size: 15px; color: #fff;
+    padding: 8px 24px;
+    font-size: 14px; color: #fff;
+    position: relative;
+    
 }
-
+.nav-active:after {
+    width: 16px;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    content: '';
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    display: table;
+    /* border-radius: 86px; */
+}
+.search-ul {
+    margin-top: 31px;
+}
+.search-ul li {
+    padding: 0px 17px;
+}
+.search-list {
+    width: 24px;
+}
+.search-list img{
+    width: 24px;
+}
+li.border-left-li {
+    border-left: solid 1px #5d71ad;
+    width: 42px;
+    top: 3px;
+    left: 15px;
+    position: relative;
+    height: 28px;
+}
+.btn-contact {
+    background: #fff;
+    color: #0D2472;
+    width: 143px;
+    padding: 11px 5px;
+    font-size: 16px;
+    margin-top: -8px;
+}
+.btn-contact:hover{
+    background: #06164a;
+    color: #fff; border-color:#06164a;
+}
 @media (min-width: 200px) and (max-width: 991px) {
 
 .custom-header {

@@ -1,11 +1,184 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
 	font-family:CircularStdFont;
-	src: url(assets/fonts/CircularStdFont.otf);
+	src: url(assets/fonts/CircularStdBold.otf);
+	font-display: swap;
+}
+@font-face {
+	font-family:Circularnormal;
+	src: url(assets/fonts/circularstdmedium500.ttf);
 	font-display: swap;
 }
 
+
+/*===================page index
+## what-we-do-section
+## dont-just-take-section
+===================*/
+
+
 body{
-    font-family:CircularStdFont; 
+    font-family:Circularnormal;
     margin: 0px;
+}
+.container-fluid{
+	padding-right: 40px;
+    padding-left: 40px;
+}
+h1, h2, h3{
+	font-family:CircularStdFont;	
+}
+h1{
+	font-size: 43px;
+}
+/* what-we-do-section */
+.what-we-do-section{
+	width: 100%;
+	background-image: url(./assets/images/waht-bg.svg) ;
+	min-height:640px; margin-top: 200px;background-size: 100%;
+}
+.what-block {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    min-height: 330px;
+	padding-bottom: 60px;
+    box-shadow: 3px 0px 46px #e5e5e5;
+    border-radius: 8px;margin-top: 51px;
+}
+.what-block span {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient( 
+167deg, #0326b1, #0480ba, #20d2ff);
+    /* float: left; */
+    display: table;
+    margin: auto;
+    border-radius: 150px;
+    margin-top: 32px;text-align: center;
+    line-height: 90px;
+}
+.what-block span img {
+    width: 38px;
+}
+.what-block h3 {
+    font-size: 23px;
+    margin-top: 22px;
+}
+.what-block p {
+    color: #838080;
+    font-size: 15px;
+    width: 80%;
+    margin: auto;
+    line-height: 24px;
+    margin-top: 12px;
+}
+/* dont-just-take-section */
+.dont-just-take-section{
+min-height: 1000px;
+width: 100%;
+padding-bottom: 40px;
+background-size: cover !important;
+background-position: 50% 50% !important;
+z-index: 0;
+transition: opacity .3s linear;
+-webkit-transition: opacity .3s linear;
+position: relative;
+}
+section.dont-just-take-section:before {
+    position: absolute;
+    content: '';
+    background: linear-gradient( 
+190deg, #001464, #2560ca, #00acd7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.9;
+}
+.shape-bottom2 {
+	width: 100%;
+}
+.shape-bottom2 img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    margin: 0 auto;max-width: 100%;
+    height: auto;
+}
+.just-take-inner{
+	position: relative;
+	z-index: 99;
+}
+.h2-justtake {
+    margin-top: 202px;
+    width: 100%;
+    float: left;
+    color: #fff;
+    font-size: 36px;
+}
+.p-just-take{
+    width: 100%;
+    float: left;
+    color: #fff;
+    font-size: 14px;
+	margin-top: 12px;
+}
+.just-take-block {
+    width: 100%;
+    background: #fff;
+    padding: 20px;min-height: 254px;
+    border-radius: 10px; float: left;
+	margin-top: 32px;
+}
+.just-take-header {
+    width: 100%;
+    float: left;
+	margin-top: 10px;
+}
+.just-take-header img {
+    width: 64px;
+    float: left;
+    height: 64px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+.just-take-headeright {
+    width: 70%;
+    float: left;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+.just-take-headeright h4{
+  margin-bottom: 0px;
+}
+.just-take-headeright h5 {
+    color: #5c5c5c;
+    font-size: 20px;
+    margin-top: 2px;
+}
+p.p-just-take-detils {
+    width: 100%;
+    float: left;
+    font-size: 15px;
+    color: #838080;
+    margin-top: 15px;
+    line-height: 25px;
+}
+button.btn.btn-view {
+    background: #ffffff;
+    color: #000;
+    width: 190px;
+    padding: 17px 10px;
+	margin-top: 62px;
+    font-size: 16px;
+}
+button.btn.btn-view:hover {
+    background: #06164a;
+    color: #fff;
+   
 }
