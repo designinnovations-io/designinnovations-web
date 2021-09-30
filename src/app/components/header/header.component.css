@@ -2,7 +2,7 @@
     width: 100%;
     float: left;
    position: absolute;
-    z-index: 9;
+   z-index: 10000;
     margin-top: 12px;
 }
 .custom-navbar {
@@ -22,6 +22,9 @@
     padding: 8px 24px;
     font-size: 14px; color: #fff;
     position: relative;
+}
+.custom-navbar .navbar-nav .nav-link:hover{
+    color: #c1d0f9;
 }
 .nav-active:after {
     width: 16px;
@@ -65,7 +68,7 @@ li.border-left-li {
     margin-top: -8px;
 }
 .btn-contact:hover{
-    background: #06164a;
+    background: #00124c;
     color: #fff; border-color:#06164a;
 }
 @media (min-width: 200px) and (max-width: 991px) {
@@ -79,29 +82,51 @@ li.border-left-li {
     top: 7px;
 }
 .custom-navbar div#navbarCollapse {
-    background: #5d5c9d;
+    background: #0d2472;
     top: 48px;
     position: relative;
     z-index: 99;
+    border: solid 1px #223e8d;
     float: right;
     left: 31px;
+    box-shadow: 0px 0px 10px #0e0e0e;
+    padding: 22px;
 }
 .custom-navbar .navbar-nav .nav-link {
     text-align: right;
 }
 .custom-navbar .navbar-toggler {
     color: #fff !important;
-    border-color: #e3e3ff;
-    background: #3a3a73;
+    border-color: #7c8cc1;
+    background: #0d2472;
 }
-
+.nav-active:after{
+    display: none !important;
+}
 }
  @media (min-width: 200px) and (max-width: 767px) {
 .custom-header .navbar-toggler {
     top: -26px;
 }
 .custom-navbar div#navbarCollapse {
-    background: #5d5c9d;
+    background: #0d2472;
     top: 16px;
+}
+.custom-navbar{
+    margin-top: -22px;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+}
+.search-ul {
+    justify-content: center !important;
+    margin-top: 42px !important;
+}
+.search-ul li {
+    padding: 0px 13px !important;
+}
+.btn-contact {
+    width: 122px !important;
+    font-size: 16px !important;
 }
 }
