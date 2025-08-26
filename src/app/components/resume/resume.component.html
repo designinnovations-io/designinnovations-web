@@ -1,0 +1,193 @@
+<div class="resume-container" [class.visible]="isVisible">
+  <!-- Navigation Header -->
+  <nav class="nav-header">
+    <div class="nav-content">
+      <h1 class="nav-logo">{{ personalInfo.name }}</h1>
+      <div class="nav-links">
+        <a (click)="scrollToSection('about')" [class.active]="activeSection === 'about'">About</a>
+        <a (click)="scrollToSection('skills')" [class.active]="activeSection === 'skills'">Skills</a>
+        <a (click)="scrollToSection('experience')" [class.active]="activeSection === 'experience'">Experience</a>
+        <a (click)="scrollToSection('projects')" [class.active]="activeSection === 'projects'">Projects</a>
+        <a (click)="scrollToSection('education')" [class.active]="activeSection === 'education'">Education</a>
+        <button class="download-btn" (click)="downloadResume()">
+          <i class="icon-download"></i>
+          Download Resume
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="about" class="hero-section section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-name">{{ personalInfo.name }}</h1>
+        <h2 class="hero-title">{{ personalInfo.title }}</h2>
+        <p class="hero-description">
+          Passionate developer with 5+ years of experience creating innovative web applications 
+          and leading development teams. I love turning complex problems into simple, beautiful solutions.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">1M+</span>
+            <span class="stat-label">Users Impacted</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <div class="avatar-placeholder">AJ</div>
+          </div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="icon-email"></i>
+              <span>{{ personalInfo.email }}</span>
+            </div>
+            <div class="contact-item">
+              <i class="icon-phone"></i>
+              <span>{{ personalInfo.phone }}</span>
+            </div>
+            <div class="contact-item">
+              <i class="icon-location"></i>
+              <span>{{ personalInfo.location }}</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <i class="icon-github"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="icon-linkedin"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="icon-website"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section section">
+    <div class="section-content">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-category" *ngFor="let category of ['Frontend', 'Backend', 'DevOps', 'Design', 'Database']">
+          <h3 class="category-title">{{ category }}</h3>
+          <div class="skills-list">
+            <div class="skill-item" *ngFor="let skill of skills | filter: 'category': category">
+              <div class="skill-header">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-percentage">{{ skill.level }}%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" 
+                     [style.width.%]="skill.level"
+                     [style.background-color]="getSkillCategoryColor(skill.category)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience-section section">
+    <div class="section-content">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item" *ngFor="let job of experience; let i = index">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line" *ngIf="i < experience.length - 1"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="job-header">
+              <h3 class="job-title">{{ job.position }}</h3>
+              <div class="job-meta">
+                <span class="company">{{ job.company }}</span>
+                <span class="duration">{{ job.duration }}</span>
+                <span class="location">{{ job.location }}</span>
+              </div>
+            </div>
+            <ul class="achievements">
+              <li *ngFor="let achievement of job.achievements">{{ achievement }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section section">
+    <div class="section-content">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card" *ngFor="let project of projects">
+          <div class="project-header">
+            <h3 class="project-name">{{ project.name }}</h3>
+            <a href="{{ project.link }}" class="project-link" target="_blank">
+              <i class="icon-external"></i>
+            </a>
+          </div>
+          <p class="project-description">{{ project.description }}</p>
+          <div class="project-tech">
+            <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+          </div>
+          <div class="project-highlights">
+            <div class="highlight" *ngFor="let highlight of project.highlights">
+              <i class="icon-star"></i>
+              <span>{{ highlight }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="education-section section">
+    <div class="section-content">
+      <h2 class="section-title">Education</h2>
+      <div class="education-grid">
+        <div class="education-card" *ngFor="let edu of education">
+          <div class="education-icon">
+            <i class="icon-graduation"></i>
+          </div>
+          <div class="education-content">
+            <h3 class="degree">{{ edu.degree }}</h3>
+            <p class="school">{{ edu.school }}</p>
+            <div class="education-meta">
+              <span class="year">{{ edu.year }}</span>
+              <span class="gpa">GPA: {{ edu.gpa }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 {{ personalInfo.name }}. Crafted with ❤️ and lots of ☕</p>
+      <div class="footer-links">
+        <a href="mailto:{{ personalInfo.email }}">Get In Touch</a>
+        <a href="#" (click)="scrollToSection('about')">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+</div>
