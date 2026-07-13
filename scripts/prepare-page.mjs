@@ -60,7 +60,7 @@ for (const client of ["Cleveland Clinic", "Paylocity"]) {
 }
 
 const paletteChanges = [
-  ["--paper:#f4f3ee", "--paper:#e7e3da", 1],
+  ["--paper:#f4f3ee", "--paper:#ddd8ce", 1],
   [
     "background:#fff;border:1px solid #e6e4dc;border-radius:18px",
     "background:#f1eee7;border:1px solid #d3cec3;border-radius:18px",

@@ -25,7 +25,7 @@ test("the embedded site template and assets are present", () => {
 
 test("the toned-down light palette is applied", () => {
   const template = JSON.parse(templateMatch[1]);
-  assert.match(template, /--paper:#e7e3da/);
+  assert.match(template, /--paper:#ddd8ce/);
   assert.match(template, /background:#f1eee7/);
   assert.match(template, /background:#ece8df/);
   assert.doesNotMatch(template, /--paper:#f4f3ee/);
