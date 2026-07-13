@@ -35,3 +35,10 @@ test("the primary contact remains a working email link", () => {
   const template = JSON.parse(templateMatch[1]);
   assert.match(template, /href="mailto:hello@designinnovations\.studio"/);
 });
+
+test("hidden technology references stay out of the public copy", () => {
+  const template = JSON.parse(templateMatch[1]);
+  assert.doesNotMatch(template, /PIXI\.js/);
+  assert.equal((template.match(/GSAP/g) || []).length, 3);
+  assert.equal((template.match(/WebGL/g) || []).length, 1);
+});

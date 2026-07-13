@@ -27,6 +27,28 @@ page = replaceExact(
   1,
 );
 
+const technologyChanges = [
+  [
+    'font-size:11.5px;color:#6b6f76;border:1px solid #e6e4dc;border-radius:7px;padding:4px 9px\\">PIXI.js<\\u002Fspan>',
+    'font-size:11.5px;color:#6b6f76;border:1px solid #e6e4dc;border-radius:7px;padding:4px 9px\\">GSAP<\\u002Fspan>',
+    1,
+  ],
+  [
+    'font-size:12.5px;color:#c8ccd4;border:1px solid #2c2f37;border-radius:8px;padding:6px 11px;background:#0f1116\\">PIXI.js<\\u002Fspan>',
+    'font-size:12.5px;color:#c8ccd4;border:1px solid #2c2f37;border-radius:8px;padding:6px 11px;background:#0f1116\\">WebGL<\\u002Fspan>',
+    1,
+  ],
+  [
+    "['graphics', 'Electron · PIXI.js · Three.js']",
+    "['graphics', 'Electron · GSAP · Three.js']",
+    1,
+  ],
+];
+
+for (const [search, replacement, expectedCount] of technologyChanges) {
+  page = replaceExact(page, search, replacement, expectedCount);
+}
+
 const paletteChanges = [
   ["--paper:#f4f3ee", "--paper:#e7e3da", 1],
   [
