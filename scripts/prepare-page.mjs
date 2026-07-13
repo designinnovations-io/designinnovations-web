@@ -49,6 +49,16 @@ for (const [search, replacement, expectedCount] of technologyChanges) {
   page = replaceExact(page, search, replacement, expectedCount);
 }
 
+const clientSeparator =
+  '<span style=\\"color:var(--accent);font-size:clamp(10px,1.2vw,15px);margin:0 clamp(30px,4.4vw,60px)\\">◆<\\u002Fspan>\\n            ';
+const clientStyle =
+  "font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(22px,2.8vw,38px);letter-spacing:-.02em;color:#e7e9ee";
+
+for (const client of ["Cleveland Clinic", "Paylocity"]) {
+  const clientLabel = `<span style=\\"${clientStyle}\\">${client}<\\u002Fspan>\\n            `;
+  page = replaceExact(page, clientSeparator + clientLabel, "", 2);
+}
+
 const paletteChanges = [
   ["--paper:#f4f3ee", "--paper:#e7e3da", 1],
   [

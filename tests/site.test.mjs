@@ -42,3 +42,9 @@ test("hidden technology references stay out of the public copy", () => {
   assert.equal((template.match(/GSAP/g) || []).length, 3);
   assert.equal((template.match(/WebGL/g) || []).length, 1);
 });
+
+test("hidden client names stay out of the public copy", () => {
+  const template = JSON.parse(templateMatch[1]);
+  assert.doesNotMatch(template, /Cleveland Clinic/);
+  assert.doesNotMatch(template, /Paylocity/);
+});
