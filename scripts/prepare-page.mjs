@@ -27,6 +27,13 @@ page = replaceExact(
   1,
 );
 
+page = replaceExact(
+  page,
+  "hello@designinnovations.studio",
+  "chris@designinnovations.io",
+  2,
+);
+
 const technologyChanges = [
   [
     'font-size:11.5px;color:#6b6f76;border:1px solid #e6e4dc;border-radius:7px;padding:4px 9px\\">PIXI.js<\\u002Fspan>',

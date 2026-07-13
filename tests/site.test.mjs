@@ -33,7 +33,9 @@ test("the toned-down light palette is applied", () => {
 
 test("the primary contact remains a working email link", () => {
   const template = JSON.parse(templateMatch[1]);
-  assert.match(template, /href="mailto:hello@designinnovations\.studio"/);
+  assert.match(template, /href="mailto:chris@designinnovations\.io"/);
+  assert.match(template, />chris@designinnovations\.io<\/a>/);
+  assert.doesNotMatch(template, /hello@designinnovations\.studio/);
 });
 
 test("hidden technology references stay out of the public copy", () => {
