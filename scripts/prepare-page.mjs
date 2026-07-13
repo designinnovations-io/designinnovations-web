@@ -49,6 +49,26 @@ for (const [search, replacement, expectedCount] of technologyChanges) {
   page = replaceExact(page, search, replacement, expectedCount);
 }
 
+const audienceCopyChanges = [
+  [
+    ">AI Integration<\\u002Fh3>",
+    ">Practical AI & Automation<\\u002Fh3>",
+    1,
+  ],
+  [
+    "Practical AI woven into real products — copilots, search, automation and LLM pipelines that ship to production, not demos.",
+    "AI that helps your team get real work done — assistants that answer questions, tools that find information in your documents, and repetitive tasks handled automatically.",
+    1,
+  ],
+  [">LLMs<\\u002Fspan>", ">AI Assistants<\\u002Fspan>", 1],
+  [">RAG<\\u002Fspan>", ">Search Your Documents<\\u002Fspan>", 1],
+  [">Automation<\\u002Fspan>", ">Task Automation<\\u002Fspan>", 1],
+];
+
+for (const [search, replacement, expectedCount] of audienceCopyChanges) {
+  page = replaceExact(page, search, replacement, expectedCount);
+}
+
 const clientSeparator =
   '<span style=\\"color:var(--accent);font-size:clamp(10px,1.2vw,15px);margin:0 clamp(30px,4.4vw,60px)\\">◆<\\u002Fspan>\\n            ';
 const clientStyle =
@@ -58,6 +78,37 @@ for (const client of ["Cleveland Clinic", "Paylocity"]) {
   const clientLabel = `<span style=\\"${clientStyle}\\">${client}<\\u002Fspan>\\n            `;
   page = replaceExact(page, clientSeparator + clientLabel, "", 2);
 }
+
+const toolkitCardStyle =
+  "background:var(--ink);padding:clamp(24px,2.6vw,32px) clamp(22px,2vw,28px);transition:background .25s ease";
+const toolkitHeadingStyle =
+  "font-family:var(--label);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#9fb0ff";
+const toolkitTagStyle =
+  "font-family:var(--label);font-size:12.5px;color:#c8ccd4;border:1px solid #2c2f37;border-radius:8px;padding:6px 11px;background:#0f1116";
+
+const buildToolkitCard = (title, count, tags) =>
+  [
+    `        <div style=\\"${toolkitCardStyle}\\" style-hover=\\"background:#12141a\\">`,
+    '          <div style=\\"display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:18px\\">',
+    `            <h4 style=\\"${toolkitHeadingStyle}\\">${title}<\\u002Fh4>`,
+    `            <span style=\\"font-family:var(--label);font-size:11px;color:#4f545e\\">${count}<\\u002Fspan>`,
+    "          <\\u002Fdiv>",
+    '          <div style=\\"display:flex;flex-wrap:wrap;gap:8px\\">',
+    ...tags.map(
+      (tag) => `            <span style=\\"${toolkitTagStyle}\\">${tag}<\\u002Fspan>`,
+    ),
+    "          <\\u002Fdiv>",
+    "        <\\u002Fdiv>",
+  ].join("\\n");
+
+const qualityCard = buildToolkitCard("Quality", "03", ["Playwright", "Jest", "xUnit"]);
+const aiCard = buildToolkitCard("AI for Real Work", "04", [
+  "AI Assistants",
+  "Task Automation",
+  "Search Your Documents",
+  "Extract Data from Files",
+]);
+page = replaceExact(page, qualityCard, `${aiCard}\\n${qualityCard}`, 1);
 
 const paletteChanges = [
   ["--paper:#f4f3ee", "--paper:#ddd8ce", 1],

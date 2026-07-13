@@ -48,3 +48,15 @@ test("hidden client names stay out of the public copy", () => {
   assert.doesNotMatch(template, /Cleveland Clinic/);
   assert.doesNotMatch(template, /Paylocity/);
 });
+
+test("the AI copy describes recognizable uses without technical jargon", () => {
+  const template = JSON.parse(templateMatch[1]);
+  assert.match(template, />Practical AI & Automation<\/h3>/);
+  assert.match(template, /assistants that answer questions/);
+  assert.match(template, />AI for Real Work<\/h4>/);
+  assert.match(template, />AI Assistants<\/span>/);
+  assert.match(template, />Task Automation<\/span>/);
+  assert.match(template, />Search Your Documents<\/span>/);
+  assert.match(template, />Extract Data from Files<\/span>/);
+  assert.doesNotMatch(template, /\bLLMs?\b|>RAG<|Vector Search|LLM pipelines/);
+});
