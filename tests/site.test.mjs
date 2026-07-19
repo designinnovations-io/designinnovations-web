@@ -31,12 +31,18 @@ test("the source bundle has deployable content", () => {
 test("the production page is optimized as normal static assets", () => {
   const builtPage = readFileSync(new URL("../dist/index.html", import.meta.url), "utf8");
   assert.match(builtPage, /<link rel="stylesheet" href="\/assets\/site\.css">/);
+  assert.doesNotMatch(builtPage, /\sstyle="/);
+  assert.doesNotMatch(builtPage, /\sstyle-hover="/);
+  assert.match(builtPage, /<script defer src="\/assets\/site\.js"><\/script>/);
+  assert.match(builtPage, /<script[^>]*data-dc-script[^>]*><\/script>/);
+  assert.doesNotMatch(builtPage, /data-dc-script[^>]*>\s*class Component/);
   assert.match(builtPage, /<script defer src="\/assets\/.+\.js"><\/script>/);
   assert.match(builtPage, /<link rel="canonical" href="https:\/\/designinnovations\.io\/">/);
   assert.match(builtPage, /application\/ld\+json/);
   assert.match(builtPage, /property="og:image" content="https:\/\/designinnovations\.io\/assets\/og\.png"/);
   assert.doesNotMatch(builtPage, /__bundler\/manifest/);
   assert.ok(existsSync(new URL("../dist/assets/og.png", import.meta.url)));
+  assert.ok(existsSync(new URL("../dist/assets/site.js", import.meta.url)));
   assert.ok(existsSync(new URL("../dist/robots.txt", import.meta.url)));
   assert.ok(existsSync(new URL("../dist/sitemap.xml", import.meta.url)));
 });

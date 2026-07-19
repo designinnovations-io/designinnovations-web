@@ -29,6 +29,48 @@ const decodeAsset = (entry) => {
   return entry.compressed ? gunzipSync(bytes) : bytes;
 };
 
+const extractInlineStyles = (html) => {
+  const classes = new Map();
+  const rules = [];
+
+  const classFor = (declarations, suffix = "") => {
+    const key = `${suffix}:${declarations}`;
+    if (!classes.has(key)) {
+      const className = `di-style-${classes.size + 1}`;
+      classes.set(key, className);
+      rules.push(`.${className}${suffix} { ${declarations} }`);
+    }
+    return classes.get(key);
+  };
+
+  return {
+    html: html.replace(/<([A-Za-z][\w:-]*)([^>]*?)>/g, (tag, name, attributes) => {
+      const styleMatch = attributes.match(/\sstyle="([^"]*)"/);
+      const hoverMatch = attributes.match(/\sstyle-hover="([^"]*)"/);
+      if (!styleMatch && !hoverMatch) return tag;
+
+      let updatedAttributes = attributes
+        .replace(/\sstyle="[^"]*"/, "")
+        .replace(/\sstyle-hover="[^"]*"/, "");
+      const styleClasses = [];
+      if (styleMatch) styleClasses.push(classFor(styleMatch[1]));
+      if (hoverMatch) styleClasses.push(classFor(hoverMatch[1], ":hover"));
+
+      const existingClass = updatedAttributes.match(/\sclass="([^"]*)"/);
+      if (existingClass) {
+        updatedAttributes = updatedAttributes.replace(
+          /\sclass="[^"]*"/,
+          ` class="${existingClass[1]} ${styleClasses.join(" ")}"`,
+        );
+      } else {
+        updatedAttributes += ` class="${styleClasses.join(" ")}"`;
+      }
+      return `<${name}${updatedAttributes}>`;
+    }),
+    css: rules.join("\n"),
+  };
+};
+
 const source = await readFile(sourceFile, "utf8");
 const template = JSON.parse(scriptContents(source, "template"));
 const manifest = JSON.parse(scriptContents(source, "manifest"));
@@ -53,12 +95,36 @@ const helmet = helmetMatch[1];
 const stylesheet = [...helmet.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)]
   .map((match) => match[1].trim())
   .join("\n\n");
-await writeFile(resolve(assetsDir, "site.css"), `${stylesheet}\n`, "utf8");
 await cp(socialImage, resolve(assetsDir, "og.png"));
 
 documentHtml = documentHtml.replace(/<helmet>[\s\S]*?<\/helmet>/i, "");
 documentHtml = documentHtml.replace(/<script src="[^"]+"><\/script>/i, "");
 documentHtml = documentHtml.replace(/<head>[\s\S]*?<\/head>/i, "<head></head>");
+
+const componentScript = documentHtml.match(
+  /<script([^>]*\bdata-dc-script(?:="")?[^>]*)>([\s\S]*?)<\/script>/i,
+);
+if (!componentScript) throw new Error("The bundled page does not contain its component script.");
+
+const componentScriptPath = "/assets/site.js";
+const componentSource = componentScript[2].trim();
+documentHtml = documentHtml.replace(
+  componentScript[0],
+  `<script${componentScript[1]}></script>`,
+);
+await writeFile(
+  resolve(assetsDir, "site.js"),
+  `const componentScript = document.querySelector("script[data-dc-script]");\nif (componentScript) componentScript.textContent = ${JSON.stringify(componentSource)};\n`,
+  "utf8",
+);
+
+const extractedStyles = extractInlineStyles(documentHtml);
+documentHtml = extractedStyles.html;
+await writeFile(
+  resolve(assetsDir, "site.css"),
+  `${stylesheet}\n\n/* Styles extracted from the page template */\n${extractedStyles.css}\n`,
+  "utf8",
+);
 
 const runtimePath = [...assetPaths.entries()].find(([id]) => manifest[id].mime === "text/javascript")?.[1];
 if (!runtimePath) throw new Error("The bundled runtime is missing.");
@@ -87,6 +153,7 @@ const metadata = `
   <meta name="twitter:description" content="Senior software engineering, web development, AI integration, and real-time graphics for ambitious products.">
   <meta name="twitter:image" content="${siteUrl}assets/og.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Design Innovations LLC","url":"${siteUrl}","email":"chris@designinnovations.io","description":"Senior software engineering, web development, AI integration, and real-time graphics.","areaServed":"United States","serviceType":["Software engineering","Web development","AI integration","Real-time graphics"]}</script>
+  <script defer src="${componentScriptPath}"></script>
   <script defer src="${runtimePath}"></script>`;
 
 documentHtml = documentHtml.replace("<head></head>", `<head>${metadata}\n</head>`);
