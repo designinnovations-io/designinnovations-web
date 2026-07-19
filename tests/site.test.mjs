@@ -33,6 +33,9 @@ test("the production page is optimized as normal static assets", () => {
   assert.match(builtPage, /<link rel="stylesheet" href="\/assets\/site\.css">/);
   assert.doesNotMatch(builtPage, /\sstyle="/);
   assert.doesNotMatch(builtPage, /\sstyle-hover="/);
+  assert.doesNotMatch(builtPage, /\bdi-style-\d+\b/);
+  assert.match(builtPage, /\bdi-navlink-rule\b/);
+  assert.match(builtPage, /\bdi-navlink-hover\b/);
   assert.match(builtPage, /<script defer src="\/assets\/site\.js"><\/script>/);
   assert.match(builtPage, /<script[^>]*data-dc-script[^>]*><\/script>/);
   assert.doesNotMatch(builtPage, /data-dc-script[^>]*>\s*class Component/);

@@ -32,11 +32,33 @@ const decodeAsset = (entry) => {
 const extractInlineStyles = (html) => {
   const classes = new Map();
   const rules = [];
+  const usedNames = new Set();
 
-  const classFor = (declarations, suffix = "") => {
+  const semanticStem = (name, attributes) => {
+    const existingClasses = attributes.match(/\sclass="([^"]*)"/)?.[1].split(/\s+/) ?? [];
+    const existingClass = existingClasses.find((className) => className.startsWith("di-"));
+    if (existingClass) return existingClass.replace(/^di-/, "");
+
+    const id = attributes.match(/\sid="([^"]*)"/)?.[1];
+    if (id) return id;
+    if (/\sdata-buildterm(?:\s|=|$)/.test(attributes)) return "build-terminal";
+    if (/\sdata-reveal(?:\s|=|$)/.test(attributes)) return "reveal";
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  };
+
+  const uniqueName = (preferredName) => {
+    let className = preferredName;
+    let index = 2;
+    while (usedNames.has(className)) className = `${preferredName}-${index++}`;
+    usedNames.add(className);
+    return className;
+  };
+
+  const classFor = (declarations, stem, suffix = "") => {
     const key = `${suffix}:${declarations}`;
     if (!classes.has(key)) {
-      const className = `di-style-${classes.size + 1}`;
+      const purpose = suffix ? "hover" : "rule";
+      const className = uniqueName(`di-${stem}-${purpose}`);
       classes.set(key, className);
       rules.push(`.${className}${suffix} { ${declarations} }`);
     }
@@ -52,9 +74,10 @@ const extractInlineStyles = (html) => {
       let updatedAttributes = attributes
         .replace(/\sstyle="[^"]*"/, "")
         .replace(/\sstyle-hover="[^"]*"/, "");
+      const stem = semanticStem(name, updatedAttributes);
       const styleClasses = [];
-      if (styleMatch) styleClasses.push(classFor(styleMatch[1]));
-      if (hoverMatch) styleClasses.push(classFor(hoverMatch[1], ":hover"));
+      if (styleMatch) styleClasses.push(classFor(styleMatch[1], stem));
+      if (hoverMatch) styleClasses.push(classFor(hoverMatch[1], stem, ":hover"));
 
       const existingClass = updatedAttributes.match(/\sclass="([^"]*)"/);
       if (existingClass) {
