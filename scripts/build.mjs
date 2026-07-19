@@ -41,6 +41,7 @@ const extractInlineStyles = (html) => {
 
     const id = attributes.match(/\sid="([^"]*)"/)?.[1];
     if (id) return id;
+    if (/\sdata-stackterm(?:\s|=|$)/.test(attributes)) return "stack-terminal";
     if (/\sdata-buildterm(?:\s|=|$)/.test(attributes)) return "build-terminal";
     if (/\sdata-reveal(?:\s|=|$)/.test(attributes)) return "reveal";
     return name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -112,6 +113,13 @@ for (const [id, entry] of Object.entries(manifest)) {
 let documentHtml = template;
 for (const [id, path] of assetPaths) documentHtml = documentHtml.split(id).join(path);
 
+// The imported component locates the stack demo through its legacy inline
+// min-height. Give it a durable hook before inline styles move to the stylesheet.
+documentHtml = documentHtml.replace(
+  /<pre(?=[^>]*\bstyle="[^"]*\bmin-height\s*:)/i,
+  '<pre data-stackterm=""',
+);
+
 const helmetMatch = documentHtml.match(/<helmet>([\s\S]*?)<\/helmet>/i);
 if (!helmetMatch) throw new Error("The bundled page does not contain its document styles.");
 const helmet = helmetMatch[1];
@@ -130,7 +138,12 @@ const componentScript = documentHtml.match(
 if (!componentScript) throw new Error("The bundled page does not contain its component script.");
 
 const componentScriptPath = "/assets/site.js";
-const componentSource = componentScript[2].trim();
+const componentSource = componentScript[2]
+  .trim()
+  .replace(
+    "const term = [...document.querySelectorAll('pre')].find((p) => p.style.minHeight);",
+    "const term = document.querySelector('pre[data-stackterm]');",
+  );
 documentHtml = documentHtml.replace(
   componentScript[0],
   `<script${componentScript[1]}></script>`,

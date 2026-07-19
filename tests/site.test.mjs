@@ -49,3 +49,13 @@ test("the production page is optimized as normal static assets", () => {
   assert.ok(existsSync(new URL("../dist/robots.txt", import.meta.url)));
   assert.ok(existsSync(new URL("../dist/sitemap.xml", import.meta.url)));
 });
+
+test("terminal animations keep stable production hooks", () => {
+  const builtPage = readFileSync(new URL("../dist/index.html", import.meta.url), "utf8");
+  const builtScript = readFileSync(new URL("../dist/assets/site.js", import.meta.url), "utf8");
+
+  assert.match(builtPage, /<pre data-stackterm=""/);
+  assert.match(builtPage, /<pre data-buildterm=""/);
+  assert.match(builtScript, /document\.querySelector\('pre\[data-stackterm\]'\)/);
+  assert.doesNotMatch(builtScript, /style\.minHeight/);
+});
