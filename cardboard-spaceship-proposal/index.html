@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="proposal-locked">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +12,7 @@
   <meta property="og:description" content="A focused AI workflow enablement proposal prepared for Cardboard Spaceship.">
   <meta property="og:url" content="https://designinnovations.io/cardboard-spaceship-proposal/">
   <title>Agentic Workflow Coaching & Implementation – Cardboard Spaceship × Design Innovations</title>
+  <script src="./gate.min.js" defer></script>
   <style>
     :root {
       --ink: #0c0d0f;
@@ -78,6 +79,196 @@
     ::selection {
       background: var(--accent);
       color: var(--white);
+    }
+
+    .proposal-locked body { overflow: hidden; }
+
+    #proposal-content {
+      transition: filter .55s ease, transform .55s ease;
+    }
+
+    .proposal-locked #proposal-content {
+      filter: blur(12px);
+      transform: scale(1.012);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .proposal-gate {
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      overflow: auto;
+      padding: max(24px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+      background: rgba(8, 9, 13, .84);
+      backdrop-filter: blur(14px) saturate(.8);
+      -webkit-backdrop-filter: blur(14px) saturate(.8);
+      opacity: 1;
+      transition: opacity .55s ease, background-color .55s ease, backdrop-filter .55s ease;
+      isolation: isolate;
+    }
+
+    .gate-grid {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        radial-gradient(circle at 72% 18%, rgba(43,76,255,.25), transparent 38%);
+      background-size: 56px 56px, 56px 56px, auto;
+      mask-image: linear-gradient(to bottom, #000, transparent 92%);
+    }
+
+    .gate-card {
+      width: min(100%, 450px);
+      padding: clamp(28px, 7vw, 46px);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      background: rgba(18, 20, 26, .94);
+      color: var(--white);
+      box-shadow: 0 30px 100px rgba(0,0,0,.5), 0 0 0 1px rgba(43,76,255,.08) inset;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .5s ease, transform .6s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .proposal-gate.is-ready .gate-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .proposal-gate.is-leaving {
+      background: rgba(8, 9, 13, 0);
+      backdrop-filter: blur(0);
+      -webkit-backdrop-filter: blur(0);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .proposal-gate.is-leaving .gate-card {
+      opacity: 0;
+      transform: translateY(-52px) scale(.98);
+    }
+
+    .gate-mark {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 28px;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 750;
+      letter-spacing: -.08em;
+    }
+
+    .gate-kicker,
+    .gate-label,
+    .gate-submit,
+    .gate-error {
+      font-family: var(--mono);
+    }
+
+    .gate-kicker {
+      margin-bottom: 14px;
+      color: var(--accent-text);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .gate-title {
+      margin-bottom: 14px;
+      font-size: clamp(34px, 9vw, 50px);
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+
+    .gate-copy {
+      color: #b8bec9;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .gate-form { margin-top: 30px; }
+
+    .gate-label {
+      display: block;
+      margin-bottom: 9px;
+      color: #dfe3eb;
+      font-size: 10px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .gate-input {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 15px;
+      border: 1px solid #363b48;
+      border-radius: 9px;
+      background: #0c0e13;
+      color: var(--white);
+      font: 16px var(--sans);
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .gate-input:focus {
+      border-color: #7186ff;
+      box-shadow: 0 0 0 4px rgba(43,76,255,.18);
+    }
+
+    .gate-submit {
+      width: 100%;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color .2s ease, transform .2s ease, opacity .2s ease;
+    }
+
+    .gate-submit:hover { background: #3d5cff; transform: translateY(-1px); }
+    .gate-submit:disabled { cursor: wait; opacity: .65; transform: none; }
+
+    .gate-error {
+      min-height: 20px;
+      margin-top: 12px;
+      color: #ff9fa8;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .gate-card.is-denied { animation: gate-denied .36s ease; }
+
+    @keyframes gate-denied {
+      25% { transform: translateX(-7px); }
+      50% { transform: translateX(6px); }
+      75% { transform: translateX(-3px); }
+    }
+
+    .gate-noscript {
+      display: block;
+      margin-top: 12px;
+      color: #ffbec4;
+      font-size: 12px;
     }
 
     .skip-link {
@@ -1503,6 +1694,7 @@
         transition-duration: .01ms !important;
       }
       [data-reveal] { opacity: 1; transform: none; }
+      .gate-card { opacity: 1; transform: none; }
     }
 
     @media print {
@@ -1527,6 +1719,9 @@
       .skip-link,
       .cta,
       .footer { display: none !important; }
+
+      html.proposal-locked #proposal-content { display: none !important; }
+      html.proposal-locked .proposal-gate { display: grid !important; }
 
       .wrap { width: 100%; max-width: none; padding: 0; }
       [data-reveal] { opacity: 1 !important; transform: none !important; }
@@ -1595,6 +1790,24 @@
   </style>
 </head>
 <body>
+  <section class="proposal-gate" id="proposal-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-grid" aria-hidden="true"></div>
+    <div class="gate-card" id="gate-card">
+      <div class="gate-mark" aria-hidden="true">{di}</div>
+      <div class="gate-kicker">Private proposal / Cardboard Spaceship</div>
+      <h1 class="gate-title" id="gate-title">Welcome aboard.</h1>
+      <p class="gate-copy">Enter the shared password to review the proposal.</p>
+      <form class="gate-form" id="gate-form" novalidate>
+        <label class="gate-label" for="gate-password">Password</label>
+        <input class="gate-input" id="gate-password" name="password" type="password" autocomplete="current-password" autocapitalize="none" spellcheck="false" required>
+        <button class="gate-submit" id="gate-submit" type="submit">Unlock proposal <span aria-hidden="true">→</span></button>
+        <p class="gate-error" id="gate-error" role="status" aria-live="polite"></p>
+      </form>
+      <noscript class="gate-noscript">JavaScript is required to unlock this proposal.</noscript>
+    </div>
+  </section>
+
+  <div id="proposal-content" inert aria-hidden="true">
   <a class="skip-link" href="#main">Skip to proposal</a>
 
   <header class="nav" aria-label="Proposal navigation">
@@ -2102,6 +2315,7 @@
       <div class="legal-note">Design Innovations LLC / designinnovations.io<br>Software at the speed of your ideas.</div>
     </div>
   </footer>
+  </div>
 
   <script>
     (() => {

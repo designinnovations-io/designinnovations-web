@@ -65,10 +65,19 @@ test("the Cardboard Spaceship proposal is published at its standalone route", ()
     new URL("../dist/cardboard-spaceship-proposal/index.html", import.meta.url),
     "utf8",
   );
+  const gateScript = readFileSync(
+    new URL("../dist/cardboard-spaceship-proposal/gate.min.js", import.meta.url),
+    "utf8",
+  );
 
   assert.match(proposal, /Agentic workflows\. <span>Ready to run\.<\/span>/);
   assert.match(proposal, /Start with what matters\. Lay the track as we go\./);
   assert.match(proposal, /<meta name="robots" content="noindex, nofollow, noarchive">/);
+  assert.match(proposal, /id="proposal-gate"/);
+  assert.match(proposal, /src="\.\/gate\.min\.js"/);
+  assert.match(gateScript, /crypto\.subtle\.digest/);
+  assert.doesNotMatch(gateScript, /Cardboard-Rocket-2026/);
+  assert.ok(gateScript.split(/\r?\n/).length <= 2);
   assert.match(proposal, /\$5,700/);
   assert.match(proposal, /\$3,000/);
 });
