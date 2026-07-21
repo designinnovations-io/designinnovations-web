@@ -59,3 +59,16 @@ test("terminal animations keep stable production hooks", () => {
   assert.match(builtScript, /document\.querySelector\('pre\[data-stackterm\]'\)/);
   assert.doesNotMatch(builtScript, /style\.minHeight/);
 });
+
+test("the Cardboard Spaceship proposal is published at its standalone route", () => {
+  const proposal = readFileSync(
+    new URL("../dist/cardboard-spaceship-proposal/index.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(proposal, /Agentic workflows\. <span>Put to work\.<\/span>/);
+  assert.match(proposal, /Start with what matters\. Lay the track as we go\./);
+  assert.match(proposal, /<meta name="robots" content="noindex, nofollow, noarchive">/);
+  assert.match(proposal, /\$5,700/);
+  assert.match(proposal, /\$3,000/);
+});

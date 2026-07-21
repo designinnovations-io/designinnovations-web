@@ -18,7 +18,12 @@ const server = createServer((request, response) => {
   const requestedPath = pathname === "/" ? "index.html" : normalize(pathname).replace(/^[/\\]+/, "");
   let filePath = join(root, requestedPath);
 
-  if (!filePath.startsWith(root) || !existsSync(filePath) || statSync(filePath).isDirectory()) {
+  if (filePath.startsWith(root) && existsSync(filePath) && statSync(filePath).isDirectory()) {
+    const directoryIndex = join(filePath, "index.html");
+    filePath = existsSync(directoryIndex) ? directoryIndex : join(root, "404.html");
+  }
+
+  if (!filePath.startsWith(root) || !existsSync(filePath)) {
     filePath = join(root, "404.html");
   }
 

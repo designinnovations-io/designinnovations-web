@@ -7,6 +7,7 @@ const outputDir = resolve("dist");
 const assetsDir = resolve(outputDir, "assets");
 const socialImage = resolve("assets/og.png");
 const siteUrl = "https://designinnovations.io/";
+const standaloneRoutes = ["cardboard-spaceship-proposal"];
 
 const mimeExtensions = {
   "text/javascript": ".js",
@@ -200,5 +201,11 @@ await cp(resolve(outputDir, "index.html"), resolve(outputDir, "404.html"));
 await writeFile(resolve(outputDir, ".nojekyll"), "", "utf8");
 await writeFile(resolve(outputDir, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}sitemap.xml\n`, "utf8");
 await writeFile(resolve(outputDir, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${siteUrl}</loc></url></urlset>\n`, "utf8");
+
+for (const route of standaloneRoutes) {
+  const routeOutput = resolve(outputDir, route);
+  await mkdir(routeOutput, { recursive: true });
+  await cp(resolve(route, "index.html"), resolve(routeOutput, "index.html"));
+}
 
 console.log(`Built readable, cacheable static site in ${outputDir}`);
