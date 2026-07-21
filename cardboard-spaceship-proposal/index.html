@@ -1,0 +1,2093 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="Agentic Workflow Coaching & Implementation proposal prepared by Design Innovations for Cardboard Spaceship.">
+  <link rel="canonical" href="https://designinnovations.io/cardboard-spaceship-proposal/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Design Innovations">
+  <meta property="og:title" content="Agentic Workflow Coaching & Implementation — Cardboard Spaceship × Design Innovations">
+  <meta property="og:description" content="A focused AI workflow enablement proposal prepared for Cardboard Spaceship.">
+  <meta property="og:url" content="https://designinnovations.io/cardboard-spaceship-proposal/">
+  <title>Agentic Workflow Coaching & Implementation — Cardboard Spaceship × Design Innovations</title>
+  <style>
+    :root {
+      --ink: #0c0d0f;
+      --ink-2: #15171c;
+      --ink-3: #20232a;
+      --accent: #2b4cff;
+      --accent-dark: #1835e8;
+      --accent-soft: #edf0ff;
+      --accent-text: #9fb0ff;
+      --paper: #f7f8fb;
+      --white: #ffffff;
+      --text: #111318;
+      --muted: #69707c;
+      --muted-light: #aeb4c0;
+      --rule: #dfe3eb;
+      --success: #65d59a;
+      --sans: "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+      --mono: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+      --max: 1180px;
+      --gutter: clamp(20px, 5vw, 64px);
+      --section: clamp(76px, 10vw, 132px);
+      --radius: 22px;
+      --shadow: 0 30px 80px rgba(17, 24, 55, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      overflow-x: clip;
+      background: var(--paper);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body,
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    a { color: inherit; }
+    button { font: inherit; }
+    img { max-width: 100%; }
+
+    h1,
+    h2,
+    h3,
+    p,
+    li { overflow-wrap: break-word; }
+
+    :focus-visible {
+      outline: 3px solid #7e92ff;
+      outline-offset: 4px;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--ink);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .wrap {
+      width: min(100%, calc(var(--max) + (var(--gutter) * 2)));
+      margin: 0 auto;
+      padding-left: max(var(--gutter), env(safe-area-inset-left));
+      padding-right: max(var(--gutter), env(safe-area-inset-right));
+    }
+
+    .hero-inner > *,
+    .intro-grid > *,
+    .teaching-grid > *,
+    .timeline > *,
+    .investment-intro > *,
+    .terms-grid > *,
+    .cta-grid > * { min-width: 0; }
+
+    .eyebrow,
+    .section-label,
+    .meta-label,
+    .line-label,
+    .chip,
+    .nav-links,
+    .mobile-menu,
+    .button,
+    .flow-node small,
+    .price-caption,
+    .legal-note {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+
+    .section-label::after {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.45;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      margin-bottom: 28px;
+      max-width: 820px;
+      font-size: clamp(54px, 8vw, 108px);
+      font-weight: 650;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+      max-width: 820px;
+      font-size: clamp(38px, 5.2vw, 72px);
+      font-weight: 650;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: clamp(23px, 2.5vw, 32px);
+      font-weight: 640;
+      letter-spacing: -0.03em;
+    }
+
+    p { margin-bottom: 0; }
+
+    .lede {
+      max-width: 760px;
+      color: #444a55;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.55;
+    }
+
+    .nav {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: var(--white);
+    }
+
+    .nav-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 11px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: -0.08em;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted-light);
+      font-family: var(--mono);
+      font-size: 9px;
+      line-height: 1;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 10px;
+    }
+
+    .nav-links a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      color: #d1d5de;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .nav-toggle-lines,
+    .nav-toggle-lines::before,
+    .nav-toggle-lines::after {
+      display: block;
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .nav-toggle-lines { position: relative; }
+    .nav-toggle-lines::before { position: absolute; top: -6px; }
+    .nav-toggle-lines::after { position: absolute; top: 6px; }
+
+    .mobile-menu {
+      position: absolute;
+      top: 74px;
+      left: var(--gutter);
+      right: var(--gutter);
+      display: none;
+      padding: 10px;
+      border: 1px solid #30343d;
+      border-radius: 12px;
+      background: rgba(12, 13, 15, 0.97);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      font-size: 11px;
+    }
+
+    .mobile-menu.is-open { display: grid; }
+
+    .mobile-menu a {
+      display: flex;
+      min-height: 48px;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 7px;
+      color: #d5d8df;
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover { background: #1b1e24; color: var(--white); }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--white);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -3;
+      inset: 0;
+      content: "";
+      background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 68px 68px;
+      mask-image: radial-gradient(95% 90% at 80% 12%, #000 12%, transparent 76%);
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -2;
+      top: -22%;
+      right: -12%;
+      width: min(72vw, 940px);
+      aspect-ratio: 1;
+      content: "";
+      border: 1px solid rgba(43, 76, 255, 0.62);
+      transform: rotate(31deg);
+      box-shadow:
+        0 0 0 11vw rgba(43, 76, 255, 0.025),
+        0 0 0 22vw rgba(43, 76, 255, 0.018);
+    }
+
+    .hero-glow {
+      position: absolute;
+      z-index: -1;
+      right: 4%;
+      bottom: -28%;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(43, 76, 255, 0.23), rgba(43, 76, 255, 0) 68%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(330px, 0.75fr);
+      gap: clamp(48px, 7vw, 100px);
+      align-items: center;
+      padding-top: 150px;
+      padding-bottom: 76px;
+    }
+
+    .hero .eyebrow {
+      margin-bottom: 24px;
+      color: var(--accent-text);
+    }
+
+    .hero h1 span { color: var(--accent-text); }
+
+    .hero-lede {
+      max-width: 720px;
+      color: #c6cbd5;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      font-size: 10px;
+      font-weight: 650;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 14px 38px rgba(43, 76, 255, 0.28);
+    }
+
+    .button-primary:hover { background: #3d5cff; transform: translateY(-1px); }
+
+    .button-secondary {
+      border-color: rgba(255,255,255,.24);
+      background: rgba(255,255,255,.035);
+      color: var(--white);
+    }
+
+    .button-secondary:hover { border-color: rgba(255,255,255,.48); }
+
+    .brief-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #2c3038;
+      border-radius: 18px;
+      background: rgba(16, 18, 23, 0.84);
+      box-shadow: 0 32px 100px rgba(0,0,0,.36);
+      backdrop-filter: blur(18px);
+      will-change: translate;
+    }
+
+    .brief-card::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 3px;
+      content: "";
+      background: var(--accent);
+    }
+
+    .brief-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid #2a2e36;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: #9299a7;
+    }
+
+    .brief-dots { display: flex; gap: 6px; }
+
+    .brief-dots i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #454b58;
+    }
+
+    .brief-dots i:first-child { background: var(--accent); }
+
+    .brief-body { padding: 24px; }
+
+    .terminal-line {
+      margin-bottom: 18px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #777f8f;
+    }
+
+    .terminal-line b { color: var(--accent-text); font-weight: 500; }
+
+    .flow-stack {
+      position: relative;
+      display: grid;
+      gap: 10px;
+    }
+
+    .flow-stack::before {
+      position: absolute;
+      z-index: 0;
+      top: 20px;
+      bottom: 20px;
+      left: 18px;
+      width: 1px;
+      content: "";
+      background: #343946;
+    }
+
+    .flow-node {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 13px;
+      border: 1px solid #2b3039;
+      border-radius: 10px;
+      background: #12151a;
+    }
+
+    .flow-node .icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #39404b;
+      border-radius: 8px;
+      background: #191c22;
+      color: var(--accent-text);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .flow-node small {
+      display: block;
+      margin-bottom: 3px;
+      color: #737b89;
+      font-size: 8px;
+    }
+
+    .flow-node strong {
+      display: block;
+      color: #f0f2f7;
+      font-size: 13px;
+      font-weight: 550;
+      line-height: 1.25;
+    }
+
+    .flow-node:last-child {
+      border-color: rgba(101, 213, 154, .35);
+    }
+
+    .flow-node:last-child .icon {
+      color: var(--success);
+      border-color: rgba(101, 213, 154, .38);
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(255,255,255,.12);
+      background: rgba(8, 9, 11, 0.66);
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr 1fr 0.8fr;
+    }
+
+    .meta-item {
+      min-height: 112px;
+      padding: 24px 22px;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+
+    .meta-item:first-child { padding-left: 0; }
+    .meta-item:last-child { border-right: 0; }
+
+    .meta-label {
+      margin-bottom: 10px;
+      color: #6f7684;
+      font-size: 9px;
+    }
+
+    .meta-value {
+      color: #f4f5f8;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .meta-value.price {
+      color: var(--accent-text);
+      font-size: 22px;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+    }
+
+    .meta-value.price small {
+      display: block;
+      margin-top: 6px;
+      color: #aeb4c0;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding-block: var(--section);
+      scroll-margin-top: 24px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: clamp(52px, 9vw, 120px);
+      align-items: start;
+    }
+
+    .intro-copy h2 { font-size: clamp(42px, 5.8vw, 78px); }
+
+    .intro-copy .lede { margin-top: 24px; }
+
+    .outcome-list {
+      border-top: 1px solid var(--rule);
+    }
+
+    .outcome {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .outcome-num {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .outcome h3 {
+      margin-bottom: 8px;
+      font-size: 24px;
+      letter-spacing: -0.025em;
+    }
+
+    .outcome p { color: var(--muted); }
+
+    .dark-section {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .dark-section::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(90deg, transparent, #000 65%, transparent);
+      pointer-events: none;
+    }
+
+    .dark-section .wrap { position: relative; }
+    .dark-section .lede { color: #aeb4c0; }
+
+    .workflow-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 64px;
+      border-top: 1px solid #30343c;
+      border-bottom: 1px solid #30343c;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 240px;
+      padding: 26px 22px;
+      border-right: 1px solid #30343c;
+      transition: background-color .25s ease;
+    }
+
+    .workflow-step:last-child { border-right: 0; }
+
+    .workflow-step::after {
+      position: absolute;
+      z-index: 2;
+      top: 45px;
+      right: -6px;
+      width: 11px;
+      height: 11px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
+
+    .workflow-step:last-child::after { display: none; }
+
+    .workflow-step .step-num {
+      margin-bottom: 52px;
+      color: var(--accent-text);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .workflow-step h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .workflow-step p {
+      color: #8f96a3;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .guardrail {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-top: 28px;
+      padding: 20px 22px;
+      border: 1px solid rgba(159, 176, 255, 0.24);
+      border-radius: 12px;
+      background: rgba(43, 76, 255, 0.07);
+    }
+
+    .guardrail b {
+      color: var(--accent-text);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .guardrail span { color: #bdc2cb; font-size: 14px; }
+
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+      gap: clamp(50px, 8vw, 110px);
+      align-items: start;
+    }
+
+    .teaching-aside {
+      position: sticky;
+      top: 32px;
+    }
+
+    .method-card {
+      margin-top: 30px;
+      padding: 24px;
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .method-card .line-label {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 9px;
+    }
+
+    .method-card p {
+      color: #3e444f;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .session-list { border-top: 1px solid var(--rule); }
+
+    .session {
+      display: grid;
+      grid-template-columns: 86px 1fr auto;
+      gap: 22px;
+      align-items: start;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .session-num {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .session h3 {
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .session p { color: var(--muted); font-size: 15px; }
+
+    .chip {
+      display: inline-flex;
+      min-height: 28px;
+      align-items: center;
+      padding: 0 9px;
+      border: 1px solid #cfd5e1;
+      border-radius: 999px;
+      color: #626a78;
+      font-size: 8px;
+      white-space: nowrap;
+    }
+
+    .deliverables {
+      background: var(--white);
+    }
+
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 56px;
+      border-top: 1px solid var(--rule);
+      border-left: 1px solid var(--rule);
+    }
+
+    .deliverable {
+      min-height: 250px;
+      padding: 28px;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      background: var(--white);
+    }
+
+    .deliverable .deliverable-num {
+      margin-bottom: 52px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .deliverable h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+      letter-spacing: -0.025em;
+    }
+
+    .deliverable p { color: var(--muted); font-size: 14px; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: clamp(52px, 9vw, 120px);
+      align-items: start;
+    }
+
+    .timeline-track {
+      position: relative;
+      display: grid;
+      gap: 0;
+      padding-left: 30px;
+    }
+
+    .timeline-track::before {
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 6px;
+      width: 1px;
+      content: "";
+      background: #cfd5df;
+    }
+
+    .week {
+      position: relative;
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 22px;
+      padding: 0 0 30px 8px;
+    }
+
+    .week:last-child { padding-bottom: 0; }
+
+    .week::before {
+      position: absolute;
+      top: 7px;
+      left: -29px;
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      content: "";
+    }
+
+    .week-label {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .week h3 { font-size: 21px; margin-bottom: 7px; }
+    .week p { color: var(--muted); font-size: 14px; }
+
+    .investment {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .investment .section-label { color: var(--accent-text); }
+
+    .investment-intro {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 60px;
+      align-items: end;
+    }
+
+    .investment-intro .lede { color: #aeb4c0; }
+
+    .rate-key {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid #30343c;
+      border-radius: 12px;
+      background: #30343c;
+    }
+
+    .rate-key-item {
+      min-height: 112px;
+      padding: 20px;
+      background: var(--ink-2);
+    }
+
+    .rate-key-item .line-label {
+      margin-bottom: 9px;
+      color: #737b89;
+      font-size: 8px;
+    }
+
+    .rate-key-item strong {
+      display: block;
+      color: var(--accent-text);
+      font-size: 25px;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+    }
+
+    .rate-key-item p {
+      margin-top: 4px;
+      color: #8e96a2;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 54px;
+    }
+
+    .offer-card {
+      position: relative;
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      padding: clamp(26px, 3.2vw, 38px);
+      border: 1px solid #343943;
+      border-radius: 18px;
+      background: var(--ink-2);
+      transition: translate .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .offer-card.featured {
+      border-color: rgba(159, 176, 255, .58);
+      box-shadow: inset 0 3px 0 var(--accent), 0 28px 80px rgba(0,0,0,.2);
+    }
+
+    .offer-badge {
+      align-self: flex-start;
+      margin: -8px 0 22px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .offer-option {
+      margin-bottom: 12px;
+      color: var(--accent-text);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .offer-card h3 {
+      max-width: 460px;
+      margin-bottom: 14px;
+      color: var(--white);
+      font-size: clamp(28px, 3vw, 39px);
+    }
+
+    .offer-summary {
+      min-height: 76px;
+      color: #9ca3af;
+      font-size: 15px;
+    }
+
+    .offer-price {
+      margin: 32px 0 27px;
+      color: var(--accent-text);
+      font-size: clamp(48px, 5vw, 72px);
+      font-weight: 650;
+      line-height: .92;
+      letter-spacing: -.065em;
+    }
+
+    .offer-price small {
+      display: block;
+      margin-top: 11px;
+      color: #7d8492;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .offer-breakdown {
+      border-top: 1px solid #343943;
+    }
+
+    .offer-line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px 18px;
+      padding: 19px 0;
+      border-bottom: 1px solid #343943;
+    }
+
+    .offer-line span {
+      color: #e2e5eb;
+      font-size: 15px;
+      font-weight: 560;
+    }
+
+    .offer-line strong {
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .offer-line small {
+      grid-column: 1 / -1;
+      color: #7f8794;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .offer-list {
+      display: grid;
+      gap: 13px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .offer-list li {
+      position: relative;
+      padding-left: 20px;
+      color: #a8aeb8;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .offer-list li::before {
+      position: absolute;
+      top: .66em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
+
+    .offer-foot {
+      margin-top: auto;
+      padding-top: 28px;
+    }
+
+    .offer-note {
+      padding: 16px 17px;
+      border: 1px solid #343943;
+      border-radius: 10px;
+      background: #111318;
+      color: #8f96a2;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .offer-note strong { color: var(--accent-text); font-weight: 600; }
+
+    .pricing-rule {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: center;
+      margin-top: 24px;
+      padding: 19px 21px;
+      border: 1px solid rgba(159, 176, 255, .25);
+      border-radius: 11px;
+      background: rgba(43,76,255,.07);
+    }
+
+    .pricing-rule b {
+      color: var(--accent-text);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .pricing-rule span { color: #aab0ba; font-size: 13px; }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: clamp(52px, 9vw, 120px);
+    }
+
+    .terms-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 42px;
+    }
+
+    .term {
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .term .line-label {
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 9px;
+    }
+
+    .term p { color: var(--muted); font-size: 14px; }
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      padding-block: clamp(90px, 13vw, 170px);
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .cta::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(80% 120% at 85% 0%, #000, transparent 72%);
+    }
+
+    .cta::after {
+      position: absolute;
+      right: -16%;
+      bottom: -85%;
+      width: 760px;
+      height: 760px;
+      border: 1px solid rgba(255,255,255,.32);
+      content: "";
+      transform: rotate(28deg);
+    }
+
+    .cta .wrap { position: relative; z-index: 1; }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .cta .eyebrow { margin-bottom: 22px; color: #d6ddff; }
+
+    .cta h2 {
+      max-width: 880px;
+      margin-bottom: 0;
+      font-size: clamp(50px, 7vw, 92px);
+    }
+
+    .cta-copy p {
+      color: #e1e6ff;
+      font-size: 17px;
+    }
+
+    .cta-copy .button {
+      margin-top: 24px;
+      background: var(--white);
+      color: var(--accent-dark);
+    }
+
+    .footer {
+      padding: 30px 0;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .footer .brand-copy span { display: none; }
+
+    .legal-note {
+      color: #686f7c;
+      font-size: 8px;
+      text-align: right;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1);
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes grid-drift {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 34px 18px, 34px 18px; }
+    }
+
+    @keyframes geometry-float {
+      0%, 100% { transform: rotate(31deg) translate3d(0, 0, 0); }
+      50% { transform: rotate(33deg) translate3d(-12px, 10px, 0); }
+    }
+
+    @keyframes glow-breathe {
+      0%, 100% { opacity: .72; transform: scale(.96); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+
+    @keyframes card-float {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -6px; }
+    }
+
+    @keyframes cta-grid-drift {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: -32px 20px, -32px 20px; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero::before { animation: grid-drift 20s ease-in-out infinite alternate; }
+      .hero::after { animation: geometry-float 13s ease-in-out infinite; }
+      .hero-glow { animation: glow-breathe 8s ease-in-out infinite; }
+      .cta::before { animation: cta-grid-drift 22s ease-in-out infinite alternate; }
+
+      .outcome-list[data-reveal] .outcome,
+      .workflow-flow[data-reveal] .workflow-step,
+      .session-list[data-reveal] .session,
+      .deliverable-grid[data-reveal] .deliverable,
+      .timeline-track[data-reveal] .week {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity .5s ease, transform .55s cubic-bezier(.2,.7,.2,1);
+      }
+
+      .outcome-list[data-reveal].is-visible .outcome,
+      .workflow-flow[data-reveal].is-visible .workflow-step,
+      .session-list[data-reveal].is-visible .session,
+      .deliverable-grid[data-reveal].is-visible .deliverable,
+      .timeline-track[data-reveal].is-visible .week {
+        opacity: 1;
+        transform: none;
+      }
+
+      .outcome:nth-child(2),
+      .workflow-step:nth-child(2),
+      .session:nth-child(2),
+      .deliverable:nth-child(2),
+      .week:nth-child(2) { transition-delay: 70ms !important; }
+
+      .outcome:nth-child(3),
+      .workflow-step:nth-child(3),
+      .session:nth-child(3),
+      .deliverable:nth-child(3),
+      .week:nth-child(3) { transition-delay: 140ms !important; }
+
+      .workflow-step:nth-child(4),
+      .session:nth-child(4),
+      .deliverable:nth-child(4),
+      .week:nth-child(4) { transition-delay: 210ms !important; }
+
+      .workflow-step:nth-child(5),
+      .session:nth-child(5),
+      .deliverable:nth-child(5) { transition-delay: 280ms !important; }
+
+      .deliverable:nth-child(6) { transition-delay: 350ms !important; }
+    }
+
+    @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+      .brief-card { animation: card-float 7s ease-in-out infinite; }
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .workflow-step:hover { background: rgba(43,76,255,.055); }
+      .offer-card:hover { translate: 0 -4px; border-color: #505866; box-shadow: 0 24px 70px rgba(0,0,0,.18); }
+      .offer-card.featured:hover { border-color: rgba(159,176,255,.82); box-shadow: inset 0 3px 0 var(--accent), 0 28px 80px rgba(0,0,0,.28); }
+      .method-card { transition: translate .25s ease, box-shadow .25s ease; }
+      .method-card:hover { translate: 0 -3px; box-shadow: 0 34px 86px rgba(17,24,55,.16); }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; }
+
+      .hero-inner,
+      .intro-grid,
+      .teaching-grid,
+      .timeline,
+      .investment-intro,
+      .terms-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding-top: 142px;
+        padding-bottom: 64px;
+      }
+
+      .brief-card { width: 100%; max-width: 620px; backdrop-filter: none; }
+
+      .meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .meta-item,
+      .meta-item:first-child { padding: 21px 18px; border-bottom: 1px solid rgba(255,255,255,.12); }
+      .meta-item:nth-child(even) { border-right: 0; }
+      .meta-item:last-child { grid-column: 1 / -1; border-bottom: 0; }
+
+      .workflow-flow { grid-template-columns: 1fr; }
+      .workflow-step { min-height: auto; padding: 24px 0; border-right: 0; border-bottom: 1px solid #30343c; }
+      .workflow-step:last-child { border-bottom: 0; }
+      .workflow-step::after { top: auto; right: 8px; bottom: -6px; }
+      .workflow-step .step-num { margin-bottom: 22px; }
+
+      .teaching-aside { position: static; }
+      .deliverable-grid { grid-template-columns: repeat(2, 1fr); }
+      .offer-grid { grid-template-columns: 1fr; }
+      .terms-grid { gap: 48px; }
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      h1 { font-size: clamp(48px, 16vw, 68px); }
+
+      .brand-copy { display: none; }
+      .nav-inner { min-height: 74px; }
+
+      .hero-inner { padding-top: 124px; }
+      .hero-actions { display: grid; }
+      .button { width: 100%; }
+
+      .meta-grid { grid-template-columns: 1fr; }
+      .meta-item,
+      .meta-item:first-child,
+      .meta-item:nth-child(even) { border-right: 0; }
+      .meta-item:last-child { grid-column: auto; }
+
+      .section { padding-block: 72px; }
+      .intro-grid { gap: 46px; }
+
+      .guardrail { grid-template-columns: 1fr; }
+
+      .session { grid-template-columns: 52px 1fr; gap: 14px; }
+      .session .chip { grid-column: 2; justify-self: start; }
+
+      .deliverable-grid { grid-template-columns: 1fr; }
+      .deliverable { min-height: auto; }
+      .deliverable .deliverable-num { margin-bottom: 34px; }
+
+      .week { grid-template-columns: 1fr; gap: 8px; }
+
+      .rate-key { grid-template-columns: 1fr; }
+      .offer-summary { min-height: 0; }
+      .pricing-rule { grid-template-columns: 1fr; }
+      .terms-list { grid-template-columns: 1fr; }
+
+      .footer-inner { align-items: flex-start; }
+      .legal-note { max-width: 180px; }
+    }
+
+    @media (max-width: 420px) {
+      :root { --gutter: 16px; }
+
+      h1 { font-size: clamp(42px, 15vw, 58px); }
+      h2 { font-size: clamp(34px, 11vw, 46px); }
+      .hero-lede { font-size: 17px; }
+      .mobile-menu { top: 68px; }
+
+      .brief-body { padding: 18px; }
+      .brief-head { flex-wrap: wrap; gap: 8px 14px; padding: 13px 16px; }
+      .flow-node { grid-template-columns: 32px 1fr; gap: 10px; padding: 11px; }
+      .flow-node .icon { width: 32px; height: 32px; }
+      .flow-stack::before { left: 16px; }
+
+      .section { padding-block: 62px; }
+      .section-label { font-size: 10px; }
+      .session { grid-template-columns: 34px 1fr; }
+
+      .offer-card { padding: 21px 18px; }
+      .offer-price { font-size: 46px; }
+      .offer-line { grid-template-columns: 1fr; gap: 6px; }
+      .offer-line strong { justify-self: start; }
+      .offer-line small { grid-column: auto; margin-top: 5px; }
+      .rate-key-item { padding: 18px; }
+      .pricing-rule { padding: 17px; }
+
+      .footer-inner { flex-direction: column; }
+      .legal-note { max-width: none; text-align: left; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      @page { size: Letter; margin: .45in; }
+
+      :root {
+        --section: 42px;
+        --gutter: 0;
+      }
+
+      html,
+      body {
+        background: #fff;
+        color: #111318;
+        font-size: 10.2pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .nav,
+      .hero-actions,
+      .skip-link,
+      .cta,
+      .footer { display: none !important; }
+
+      .wrap { width: 100%; max-width: none; padding: 0; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+
+      .hero {
+        min-height: 9.7in;
+        break-after: page;
+      }
+
+      .hero-inner {
+        min-height: 8.35in;
+        grid-template-columns: 1.18fr .82fr;
+        gap: .35in;
+        padding: .7in 0 .35in;
+      }
+
+      .hero h1 { font-size: 51pt; }
+      .hero-lede { font-size: 13pt; }
+      .brief-body { padding: 16px; }
+      .flow-node { padding: 9px; }
+
+      .hero-meta { background: var(--ink); }
+      .meta-grid { grid-template-columns: 1.25fr 1fr 1fr 1fr .8fr; }
+      .meta-item { min-height: 92px; padding: 18px 13px; }
+      .meta-item:first-child { padding-left: 0; }
+      .meta-value { font-size: 10pt; }
+      .meta-value.price { font-size: 17pt; }
+
+      .section { padding-block: 42px; }
+      h2 { font-size: 34pt; }
+      h3 { font-size: 16pt; }
+      .lede { font-size: 12pt; }
+
+      .intro-grid,
+      .teaching-grid,
+      .timeline,
+      .investment-intro,
+      .terms-grid { gap: .45in; }
+
+      .dark-section,
+      .investment { break-before: page; }
+      .teaching,
+      .investment,
+      .terms { break-inside: avoid; }
+
+      .workflow-flow { margin-top: 34px; }
+      .workflow-step { min-height: 180px; padding: 17px 13px; }
+      .workflow-step .step-num { margin-bottom: 32px; }
+
+      .teaching-aside { position: static; }
+      .session { padding: 17px 0; }
+      .session p { font-size: 9.5pt; }
+
+      .deliverable-grid { margin-top: 30px; }
+      .deliverable { min-height: 180px; padding: 18px; break-inside: avoid; }
+      .deliverable .deliverable-num { margin-bottom: 24px; }
+
+      .offer-grid { gap: 14px; margin-top: 30px; }
+      .offer-card { padding: 22px; break-inside: avoid; }
+      .offer-card h3 { font-size: 23pt; }
+      .offer-price { font-size: 42pt; }
+      .offer-summary { min-height: 0; }
+      .pricing-rule { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to proposal</a>
+
+  <header class="nav" aria-label="Proposal navigation">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Design Innovations, back to top">
+        <span class="brand-mark" aria-hidden="true">{di}</span>
+        <span class="brand-copy">
+          <strong>Design Innovations</strong>
+          <span>Software / Web / AI</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Desktop proposal navigation">
+        <a href="#approach">Approach</a>
+        <a href="#enablement">Enablement</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#investment">Investment</a>
+        <a href="#terms">Terms</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open proposal menu">
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+      </button>
+
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile proposal navigation">
+        <a href="#approach">Approach</a>
+        <a href="#enablement">Enablement</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#investment">Investment</a>
+        <a href="#terms">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div data-reveal>
+          <div class="eyebrow">Client proposal / July 21, 2026</div>
+          <h1>Agentic workflows. <span>Put to work.</span></h1>
+          <p class="hero-lede">
+            A focused engagement to turn Cardboard Spaceship’s existing Claude, Claude Code, Perplexity, and business systems into “another arm” for a team already wearing a thousand hats—while preserving the high-touch, unmistakably Cardboard work clients expect.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#approach">Review the plan <span aria-hidden="true">↓</span></a>
+            <button class="button button-secondary" type="button" data-print>Print / save PDF</button>
+          </div>
+        </div>
+
+        <aside class="brief-card" aria-label="Proposed workflow summary" data-reveal>
+          <div class="brief-head">
+            <span>workflow / proposal-system</span>
+            <span class="brief-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+          <div class="brief-body">
+            <div class="terminal-line"><b>$</b> turn a real process into a reliable workflow</div>
+            <div class="flow-stack">
+              <div class="flow-node">
+                <span class="icon">01</span>
+                <span><small>Discover</small><strong>Priority list + process walkthroughs</strong></span>
+              </div>
+              <div class="flow-node">
+                <span class="icon">02</span>
+                <span><small>Prioritize</small><strong>Value + readiness + risk</strong></span>
+              </div>
+              <div class="flow-node">
+                <span class="icon">03</span>
+                <span><small>Build</small><strong>Branded pilot + guardrails</strong></span>
+              </div>
+              <div class="flow-node">
+                <span class="icon">✓</span>
+                <span><small>Enable</small><strong>Team-owned working system</strong></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-meta">
+        <div class="wrap meta-grid">
+          <div class="meta-item">
+            <div class="meta-label">Prepared for</div>
+            <div class="meta-value">Cardboard Spaceship</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">From</div>
+            <div class="meta-value">Design Innovations</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Engagement</div>
+            <div class="meta-value">AI workflow enablement</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Duration</div>
+            <div class="meta-value">4–6 weeks or monthly</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Investment</div>
+            <div class="meta-value price">$5,700 <small>or $3,000 / month</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="wrap intro-grid">
+        <div class="intro-copy" data-reveal>
+          <div class="section-label">01 / Objective</div>
+          <h2>From useful tools to a working system.</h2>
+          <p class="lede">
+            Initial discovery surfaced three promising lanes: business development and budget confidence, founder-level operating support, and scalable content support. We will start with a priority list from Matt and Jeremy, then use short process walkthroughs with the people who own the work—including Amanda and Rob where appropriate—to define the first build without forcing the team into half-day meetings.
+          </p>
+        </div>
+
+        <div class="outcome-list" data-reveal>
+          <article class="outcome">
+            <div class="outcome-num">01</div>
+            <div>
+              <h3>Start Monday with the plan</h3>
+              <p>Turn upcoming meetings, active work, and team signals into a concise briefing so priorities are clear before the week gets moving.</p>
+            </div>
+          </article>
+          <article class="outcome">
+            <div class="outcome-num">02</div>
+            <div>
+              <h3>Protect the high-touch work</h3>
+              <p>Shorten proposal and budget preparation while keeping judgment, client relationships, and every final commitment firmly human-led.</p>
+            </div>
+          </article>
+          <article class="outcome">
+            <div class="outcome-num">03</div>
+            <div>
+              <h3>Scale the Cardboard voice</h3>
+              <p>Help the team produce, review, approve, and execute more content and client-facing work without falling into generic AI output.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" aria-labelledby="workflow-title">
+      <div class="wrap">
+        <div class="section-label">02 / Core workflow</div>
+        <h2 id="workflow-title" data-reveal>Start with what matters. Lay the track as we go.</h2>
+        <p class="lede" data-reveal>
+          Business development is the likely first deep dive: use call notes, scope, and a representative slice of budget history to support a fully branded, human-reviewed HTML proposal and a more defensible early budget range. Founder operating touchpoints and content scale remain strong next candidates.
+        </p>
+
+        <div class="workflow-flow" data-reveal>
+          <article class="workflow-step">
+            <div class="step-num">01 / Discover</div>
+            <h3>Map the work</h3>
+            <p>Create the priority list, walk the process with its owners, and inventory the tools, sources, decisions, and desired outcomes.</p>
+          </article>
+          <article class="workflow-step">
+            <div class="step-num">02 / Prioritize</div>
+            <h3>Choose the target</h3>
+            <p>Rank opportunities by value, repetition, feasibility, data readiness, effort, and risk.</p>
+          </article>
+          <article class="workflow-step">
+            <div class="step-num">03 / Design</div>
+            <h3>Define the system</h3>
+            <p>Inputs, controlled source access, expected outputs, Cardboard brand language, token cost, quality checks, ownership, and guardrails.</p>
+          </article>
+          <article class="workflow-step">
+            <div class="step-num">04 / Build</div>
+            <h3>Implement the pilot</h3>
+            <p>Create the selected workflow, test representative examples, and refine failure handling.</p>
+          </article>
+          <article class="workflow-step">
+            <div class="step-num">05 / Enable</div>
+            <h3>Transfer ownership</h3>
+            <p>Teach the team to run, inspect, approve, document, maintain, and improve the workflow.</p>
+          </article>
+        </div>
+
+        <div class="guardrail" data-reveal>
+          <b>Operating rule</b>
+          <span>Discovery determines what gets built. No workflow is treated as committed until its human owner, source access, token and tool cost, handling of budget history or MNPI, and release gate are agreed.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section teaching" id="enablement">
+      <div class="wrap teaching-grid">
+        <div class="teaching-aside" data-reveal>
+          <div class="section-label">03 / Enablement</div>
+          <h2>Learn by building.</h2>
+          <p class="lede">
+            Start with a top-down Agentic 101, then choose one real Cardboard problem and drill into it. Sessions stay focused and practical—no half-day seminars—and can stand alone, pair with a one-time build, or run inside the retainer.
+          </p>
+          <div class="method-card">
+            <div class="line-label">Teaching model</div>
+            <p><strong>I do → we do → you do.</strong> I establish the pattern, we build it together, then the team runs it with coaching and review.</p>
+          </div>
+        </div>
+
+        <div class="session-list" data-reveal>
+          <article class="session">
+            <div class="session-num">01</div>
+            <div>
+              <h3>Agentic 101 + priority map</h3>
+              <p>See the parts of a useful agentic system, identify the team’s recurring friction, and agree on the short list for deeper process walkthroughs.</p>
+            </div>
+            <span class="chip">90 min</span>
+          </article>
+          <article class="session">
+            <div class="session-num">02</div>
+            <div>
+              <h3>Cost-aware Claude Code</h3>
+              <p>Learn how context, tools, project instructions, plans, checkpoints, verification, and token use change the quality and operating cost of a workflow.</p>
+            </div>
+            <span class="chip">90 min</span>
+          </article>
+          <article class="session">
+            <div class="session-num">03</div>
+            <div>
+              <h3>RFP-to-quote build lab</h3>
+              <p>Use call notes and a representative slice of six years of itemized budgets to explore a branded HTML proposal and a defensible early range—working toward the 10–15% target without promising what the data cannot support.</p>
+            </div>
+            <span class="chip">90 min</span>
+          </article>
+          <article class="session">
+            <div class="session-num">04</div>
+            <div>
+              <h3>Operate in Cardboard’s voice</h3>
+              <p>Run the selected workflow with the right brand cues, feedback memory, failure handling, quality checks, ownership, and human approval points.</p>
+            </div>
+            <span class="chip">90 min</span>
+          </article>
+          <article class="session">
+            <div class="session-num">+</div>
+            <div>
+              <h3>Implementation office hours</h3>
+              <p>Two focused sessions for questions, live troubleshooting, and the small prompt, skill, or workflow refinements that surface between workshops.</p>
+            </div>
+            <span class="chip">2 × 60 min</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section deliverables" id="deliverables">
+      <div class="wrap">
+        <div class="section-label">04 / Deliverables</div>
+        <h2 data-reveal>What the team keeps.</h2>
+        <p class="lede" data-reveal>The one-time engagement delivers the core set below. Under retainer, the same pattern repeats as the team’s priorities evolve.</p>
+
+        <div class="deliverable-grid" data-reveal>
+          <article class="deliverable">
+            <div class="deliverable-num">01</div>
+            <h3>Priority map + roadmap</h3>
+            <p>Process findings, ranked opportunities, owners, approval points, success measures, and a clear recommendation for what to build first.</p>
+          </article>
+          <article class="deliverable">
+            <div class="deliverable-num">02</div>
+            <h3>Selected workflow pilot</h3>
+            <p>A team-usable implementation of the highest-priority agreed workflow—likely the business-development proposal and budget path—with human review built in.</p>
+          </article>
+          <article class="deliverable">
+            <div class="deliverable-num">03</div>
+            <h3>Context + reference layer</h3>
+            <p>A controlled, token-aware way to retrieve only the files, examples, budget history, feedback, and operating rules the workflow needs.</p>
+          </article>
+          <article class="deliverable">
+            <div class="deliverable-num">04</div>
+            <h3>Cardboard output kit</h3>
+            <p>Reusable instructions, templates, brand cues, checklists, and examples so proposals and internal tools feel unmistakably Cardboard—not generically AI-made.</p>
+          </article>
+          <article class="deliverable">
+            <div class="deliverable-num">05</div>
+            <h3>Team playbook</h3>
+            <p>Plain-language runbook covering inputs, steps, review criteria, token and tool cost, sensitive-data rules, common failures, and ownership.</p>
+          </article>
+          <article class="deliverable">
+            <div class="deliverable-num">06</div>
+            <h3>Managed workflow backlog</h3>
+            <p>A prioritized plan for the next opportunities, including founder briefings and content-scale support, based on value, effort, risk, and data readiness.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="timeline-title">
+      <div class="wrap timeline">
+        <div data-reveal>
+          <div class="section-label">05 / Schedule</div>
+          <h2 id="timeline-title">Discover, prioritize, then build.</h2>
+          <p class="lede">The one-time path typically takes four to six weeks. A retainer uses the same cycle continuously as new needs surface.</p>
+        </div>
+
+        <div class="timeline-track" data-reveal>
+          <article class="week">
+            <div class="week-label">Weeks 01–02</div>
+            <div><h3>Prioritize + walk the process</h3><p>Confirm the priority list, hold short walkthroughs with the relevant owners, inventory source material, and select the first workflow.</p></div>
+          </article>
+          <article class="week">
+            <div class="week-label">Weeks 02–04</div>
+            <div><h3>Coach + prototype</h3><p>Agentic 101, cost-aware Claude Code patterns, the RFP-to-quote build lab, and the first version of the selected workflow.</p></div>
+          </article>
+          <article class="week">
+            <div class="week-label">Weeks 04–05</div>
+            <div><h3>Test + refine</h3><p>Run representative cases, compare the output with existing budgets and proposals, and tighten accuracy, brand fit, operating cost, and guardrails.</p></div>
+          </article>
+          <article class="week">
+            <div class="week-label">Weeks 05–06</div>
+            <div><h3>Handoff or continue</h3><p>Complete the one-time handoff or roll directly into the next prioritized workflow under the monthly retainer.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section investment" id="investment">
+      <div class="wrap">
+        <div class="section-label">06 / Investment</div>
+        <div class="investment-intro">
+          <div data-reveal>
+            <h2>Two ways to work together.</h2>
+            <p class="lede">Choose a modular one-time engagement or reserve ongoing capacity at a lower effective cost. Discovery is included in either path.</p>
+          </div>
+          <div class="rate-key" data-reveal aria-label="Standard service rates">
+            <div class="rate-key-item">
+              <div class="line-label">Consulting + implementation</div>
+              <strong>$150/hr</strong>
+              <p>Discovery, architecture, building, testing, and workflow management.</p>
+            </div>
+            <div class="rate-key-item">
+              <div class="line-label">Coaching + enablement</div>
+              <strong>$75/hr</strong>
+              <p>Preparation, live team sessions, tailored materials, and follow-up.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="offer-grid">
+          <article class="offer-card" data-reveal>
+            <div class="offer-option">Option 01 / One-time</div>
+            <h3>Discovery, coaching + implementation sprint</h3>
+            <p class="offer-summary">A defined four-to-six-week engagement with modular pricing. Approve the complete package or select only the services needed.</p>
+            <div class="offer-price">$5,700<small>Complete one-time package / USD</small></div>
+
+            <div class="offer-breakdown">
+              <div class="offer-line">
+                <span>Discovery + workflow roadmap</span>
+                <strong>$900</strong>
+                <small>Includes 6 consulting hours at $150/hour for detailed requirements, process mapping, prioritization, and a recommended first build.</small>
+              </div>
+              <div class="offer-line">
+                <span>Team coaching intensive</span>
+                <strong>$1,200</strong>
+                <small>Includes 16 enablement hours at $75/hour, covering four 90-minute sessions, preparation, tailored materials, and follow-up.</small>
+              </div>
+              <div class="offer-line">
+                <span>Implementation block</span>
+                <strong>$3,600</strong>
+                <small>Includes 24 implementation hours at $150/hour to build, test, document, and hand off the agreed priority workflow.</small>
+              </div>
+            </div>
+
+            <ul class="offer-list">
+              <li>Each line can be approved independently.</li>
+              <li>Discovery findings determine the workflow implementation scope.</li>
+              <li>50% of approved one-time work is due at kickoff; 50% is due at handoff.</li>
+            </ul>
+
+            <div class="offer-foot">
+              <div class="offer-note"><strong>Smaller starting point:</strong> one tailored 90-minute coaching session is $300, including preparation, custom materials, and follow-up.<br><br><strong>Best for:</strong> a focused first engagement, a defined training series, or one priority workflow with a clear handoff.</div>
+            </div>
+          </article>
+
+          <article class="offer-card featured" data-reveal>
+            <div class="offer-badge">Best for ongoing progress</div>
+            <div class="offer-option">Option 02 / Retainer</div>
+            <h3>Ongoing AI workflow partner</h3>
+            <p class="offer-summary">Reserved monthly capacity to discover, build, document, share, maintain, and improve workflows—an ongoing extra layer of support as priorities evolve.</p>
+            <div class="offer-price">$3,000<small>Per month / 3-month initial term</small></div>
+
+            <div class="offer-breakdown">
+              <div class="offer-line">
+                <span>Implementation + workflow management</span>
+                <strong>Up to 20 hrs</strong>
+                <small>Prioritized work across business development, founder operating touchpoints, content systems, architecture, builds, testing, documentation, and maintenance.</small>
+              </div>
+              <div class="offer-line">
+                <span>Coaching + office hours</span>
+                <strong>Up to 4 hrs</strong>
+                <small>Typically two 60-minute team sessions plus preparation, tailored materials, and follow-up.</small>
+              </div>
+            </div>
+
+            <ul class="offer-list">
+              <li>Month one begins with detailed discovery and workflow prioritization.</li>
+              <li>Priority scheduling and a continuously managed workflow backlog.</li>
+              <li>New workflows are documented and shared so the team can operate them.</li>
+              <li>Small prompts, skills, features, and cost improvements are handled as the team discovers them.</li>
+              <li>Monthly review of work completed, adoption issues, and next priorities.</li>
+              <li>Equivalent standard value: $3,300; monthly savings: $300.</li>
+            </ul>
+
+            <div class="offer-foot">
+              <div class="offer-note"><strong>Initial commitment:</strong> $9,000 over three months, billed monthly in advance. Up to four unused implementation hours may roll into the immediately following month.</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="pricing-rule" data-reveal>
+          <b>Simple pricing rule</b>
+          <span>Implementation, discovery, and workflow management are $150/hour. Coaching and enablement are $75/hour. Any overage requires written approval before work begins.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section terms" id="terms">
+      <div class="wrap terms-grid">
+        <div data-reveal>
+          <div class="section-label">07 / Working agreement</div>
+          <h2>Clear boundaries keep the work moving.</h2>
+        </div>
+
+        <div class="terms-list" data-reveal>
+          <div class="term">
+            <div class="line-label">Team size</div>
+            <p>Includes live enablement for up to six Cardboard Spaceship team members.</p>
+          </div>
+          <div class="term">
+            <div class="line-label">Client inputs</div>
+            <p>Cardboard Spaceship supplies representative call notes, proposals, and an agreed subset of historical line-item budgets—rather than the full archive—plus timely feedback.</p>
+          </div>
+          <div class="term">
+            <div class="line-label">Data handling</div>
+            <p>Client materials remain in client-approved tools. Budget history, public-company information, and MNPI are segmented or excluded unless an approved handling path is agreed in writing.</p>
+          </div>
+          <div class="term">
+            <div class="line-label">Human approval</div>
+            <p>The workflow will not autonomously send pricing or make client commitments. A designated person reviews every release.</p>
+          </div>
+          <div class="term">
+            <div class="line-label">Implementation scope</div>
+            <p>After discovery, Design Innovations will identify what fits within the approved implementation hours and separate any future phase before additional work begins.</p>
+          </div>
+          <div class="term">
+            <div class="line-label">Retainer capacity</div>
+            <p>Retained work is tracked against the included monthly hours. Up to four unused implementation hours may roll forward one month; all other unused capacity resets.</p>
+          </div>
+          <div class="term">
+            <div class="line-label">Token + tool cost</div>
+            <p>Workflows are evaluated on recurring operating cost as well as output quality so a useful briefing or automation does not unexpectedly consume the team’s available capacity.</p>
+          </div>
+          <div class="term">
+            <div class="line-label">Not included</div>
+            <p>New software licenses, third-party usage fees, large-scale archive cleanup, custom enterprise integrations, production hosting, and work beyond the approved hours.</p>
+          </div>
+          <div class="term">
+            <div class="line-label">Offer validity</div>
+            <p>Pricing and reserved-capacity terms are valid through August 20, 2026.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="wrap cta-grid">
+        <div data-reveal>
+          <div class="eyebrow">Ready when you are</div>
+          <h2 id="cta-title">Choose the priority. Build the extra layer.</h2>
+        </div>
+        <div class="cta-copy" data-reveal>
+          <p>Upon approval, Design Innovations will confirm the selected engagement path, collect the priority list, and schedule the first short process walkthrough with the relevant owners.</p>
+          <a class="button" href="mailto:chris@designinnovations.io?subject=Approve%20AI%20Workflow%20Enablement%20Sprint">Approve / ask a question</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="https://designinnovations.io" aria-label="Design Innovations website">
+        <span class="brand-mark" aria-hidden="true">{di}</span>
+        <span class="brand-copy"><strong>Design Innovations</strong></span>
+      </a>
+      <div class="legal-note">Design Innovations LLC / designinnovations.io<br>Software at the speed of your ideas.</div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const menuButton = document.querySelector('.nav-toggle');
+      const mobileMenu = document.querySelector('#mobile-menu');
+
+      const setMenu = (open) => {
+        if (!menuButton || !mobileMenu) return;
+        mobileMenu.classList.toggle('is-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close proposal menu' : 'Open proposal menu');
+      };
+
+      menuButton?.addEventListener('click', () => {
+        setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+      });
+
+      mobileMenu?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setMenu(false));
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          setMenu(false);
+          menuButton?.focus();
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!mobileMenu?.classList.contains('is-open')) return;
+        if (!mobileMenu.contains(event.target) && !menuButton?.contains(event.target)) setMenu(false);
+      });
+
+      document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+
+      const revealItems = [...document.querySelectorAll('[data-reveal]')];
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+        revealItems.forEach((item) => observer.observe(item));
+      }
+    })();
+  </script>
+</body>
+</html>
