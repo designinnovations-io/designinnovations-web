@@ -66,7 +66,7 @@ test("the Cardboard Spaceship proposal is published at its standalone route", ()
     "utf8",
   );
 
-  assert.match(proposal, /Agentic workflows\. <span>Put to work\.<\/span>/);
+  assert.match(proposal, /Agentic workflows\. <span>Ready to run\.<\/span>/);
   assert.match(proposal, /Start with what matters\. Lay the track as we go\./);
   assert.match(proposal, /<meta name="robots" content="noindex, nofollow, noarchive">/);
   assert.match(proposal, /\$5,700/);
