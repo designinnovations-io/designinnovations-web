@@ -204,8 +204,7 @@ await writeFile(resolve(outputDir, "sitemap.xml"), `<?xml version="1.0" encoding
 
 for (const route of standaloneRoutes) {
   const routeOutput = resolve(outputDir, route);
-  await mkdir(routeOutput, { recursive: true });
-  await cp(resolve(route, "index.html"), resolve(routeOutput, "index.html"));
+  await cp(resolve(route), routeOutput, { recursive: true });
 }
 
 console.log(`Built readable, cacheable static site in ${outputDir}`);
