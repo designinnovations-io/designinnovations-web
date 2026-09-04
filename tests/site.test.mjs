@@ -93,6 +93,7 @@ test("the Battlegrounds to Board Games SOW is published at its standalone route"
   );
 
   assert.match(sow, /Battlegrounds to Board Games, Ltd/);
+  assert.match(sow, /Edwin Lamb and Brandon Gillespie, Owners/);
   assert.match(sow, /How the Square connection works/);
   assert.doesNotMatch(sow, /Square → Web|Web → Square|>Synced<|>Updated<|>Connected</);
   assert.match(sow, /From kickoff to handoff/);
