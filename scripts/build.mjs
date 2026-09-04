@@ -7,7 +7,7 @@ const outputDir = resolve("dist");
 const assetsDir = resolve(outputDir, "assets");
 const socialImage = resolve("assets/og.png");
 const siteUrl = "https://designinnovations.io/";
-const standaloneRoutes = ["cardboard-spaceship-proposal"];
+const standaloneRoutes = ["cardboard-spaceship-proposal", "battlegrounds-to-board-games-sow"];
 
 const mimeExtensions = {
   "text/javascript": ".js",

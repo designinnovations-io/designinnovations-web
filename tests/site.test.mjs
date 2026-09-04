@@ -81,3 +81,48 @@ test("the Cardboard Spaceship proposal is published at its standalone route", ()
   assert.match(proposal, /\$5,700/);
   assert.match(proposal, /\$3,000/);
 });
+
+test("the Battlegrounds to Board Games SOW is published at its standalone route", () => {
+  const sow = readFileSync(
+    new URL("../dist/battlegrounds-to-board-games-sow/index.html", import.meta.url),
+    "utf8",
+  );
+  const gateScript = readFileSync(
+    new URL("../dist/battlegrounds-to-board-games-sow/gate.min.js", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(sow, /Battlegrounds to Board Games, Ltd/);
+  assert.match(sow, /How the Square connection works/);
+  assert.doesNotMatch(sow, /Square → Web|Web → Square|>Synced<|>Updated<|>Connected</);
+  assert.match(sow, /From kickoff to handoff/);
+  assert.match(sow, /Project deliverables/);
+  assert.match(sow, /The design phase comes first/);
+  assert.match(sow, /Experience design \+ responsive interface/);
+  assert.match(sow, /Square store integration<\/span><span>40 hours/);
+  assert.match(sow, /Experience design \+ responsive interface<\/span><span>38 hours/);
+  assert.match(sow, /Ready to launch when/);
+  assert.match(sow, /Checkout is hosted by Square/);
+  assert.match(sow, /Scope changes require written approval/);
+  assert.match(sow, /src="\.\/di-mark\.svg"/);
+  assert.match(sow, /rel="icon" href="\.\/favicon\.svg"/);
+  assert.match(sow, /cta-grid-drift/);
+  assert.match(sow, /\$10,000/);
+  assert.equal((sow.match(/\$10,000/g) ?? []).length, 1);
+  assert.match(sow, /<h2 data-reveal>Project investment<\/h2>/);
+  assert.doesNotMatch(sow, /<h2 data-reveal>\$10,000 fixed fee<\/h2>/);
+  assert.match(sow, /200 planned hours/);
+  assert.match(sow, /<meta name="robots" content="noindex, nofollow, noarchive">/);
+  assert.match(sow, /id="proposal-gate"/);
+  assert.match(sow, /src="\.\/gate\.min\.js"/);
+  assert.doesNotMatch(sow, /signature|signing below/i);
+  assert.doesNotMatch(sow, /automat/i);
+  assert.match(gateScript, /crypto\.subtle\.digest/);
+  assert.doesNotMatch(gateScript, /Meeple-Canton-2026!/);
+  assert.doesNotMatch(gateScript, /b2bgames26/);
+  assert.doesNotMatch(gateScript, /rollforgames/);
+  assert.doesNotMatch(gateScript, /thequestbegins/);
+  assert.ok(gateScript.split(/\r?\n/).length <= 2);
+  assert.ok(existsSync(new URL("../dist/battlegrounds-to-board-games-sow/favicon.svg", import.meta.url)));
+  assert.ok(existsSync(new URL("../dist/battlegrounds-to-board-games-sow/di-mark.svg", import.meta.url)));
+});
