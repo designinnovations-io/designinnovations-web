@@ -1,0 +1,85 @@
+{
+  "brand": "Design Innovations",
+  "direction": "01 - refined braces",
+  "created": "2026-10-20",
+  "font_source": "https://github.com/JetBrains/JetBrainsMono",
+  "font_revision": "19371302b95d218af43299bce79ddbddd0bc364d",
+  "font_role": "companion, not exact logo lettering",
+  "artwork_source": "built-in ImageGen; unchanged approved PNG plus previously extracted production mark",
+  "files": [
+    {
+      "file": "fonts/fonts.css",
+      "bytes": 471,
+      "sha256": "173f944a500bc9af72bb3faaa9399813684c3337f7ae1fc5a303fc69ca67f30a"
+    },
+    {
+      "file": "fonts/OFL.txt",
+      "bytes": 4399,
+      "sha256": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697"
+    },
+    {
+      "file": "fonts/ttf/JetBrainsMono-Bold.ttf",
+      "bytes": 274096,
+      "sha256": "d22c4f3821d725eb01210d278d95dfcfcaadc34699a06658d47c8a5cc5830ada"
+    },
+    {
+      "file": "fonts/ttf/JetBrainsMono-Medium.ttf",
+      "bytes": 270316,
+      "sha256": "d16e6dc99672734698d629705f617c79f6eb6040f5113efe3a145204dc988109"
+    },
+    {
+      "file": "fonts/ttf/JetBrainsMono-Regular.ttf",
+      "bytes": 270224,
+      "sha256": "e6fd0d7e91550b3ed2b735d4312474362c4716edc4fc0577a0f61ed782d5aed1"
+    },
+    {
+      "file": "fonts/woff2/JetBrainsMono-Bold.woff2",
+      "bytes": 94628,
+      "sha256": "08863c7964612257a90bd821e3127dc5ccb0b5046f881673a1ade5809eb21d0f"
+    },
+    {
+      "file": "fonts/woff2/JetBrainsMono-Medium.woff2",
+      "bytes": 94284,
+      "sha256": "fe1c9099e3ea4123a6216d8a4a31970a2cfc6e9d80056da165012f406c83e219"
+    },
+    {
+      "file": "fonts/woff2/JetBrainsMono-Regular.woff2",
+      "bytes": 92380,
+      "sha256": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff"
+    },
+    {
+      "file": "logos/di-logo-stacked-approved.png",
+      "bytes": 1019199,
+      "sha256": "76a99c34b00bb5efe521a2e0e5887b9ad89b91b17a3c253d587c59b9e7429f60",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "file": "logos/di-mark-black-transparent.png",
+      "bytes": 370842,
+      "sha256": "0956d64271a6daf9694925badfeedfe4eef75d228624f137d1c0c7ab40f6333b",
+      "width": 1565,
+      "height": 1005,
+      "mode": "RGBA"
+    },
+    {
+      "file": "preview.html",
+      "bytes": 1742,
+      "sha256": "1dc23010ca13b3291c7a3544a1c64d82e351b51715b05519d2a0c34ba83ba833"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1357,
+      "sha256": "dfde6b01a06ffd03b60b1d49efd1924994f6aea376773d50dab74e3236cab742"
+    },
+    {
+      "file": "source/approved-concept-01.png",
+      "bytes": 1019199,
+      "sha256": "76a99c34b00bb5efe521a2e0e5887b9ad89b91b17a3c253d587c59b9e7429f60",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    }
+  ]
+}
