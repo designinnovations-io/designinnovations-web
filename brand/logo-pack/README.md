@@ -16,6 +16,6 @@ Font source: https://github.com/JetBrains/JetBrainsMono
 Pinned revision: 19371302b95d218af43299bce79ddbddd0bc364d
 
 ## Use
-Open `preview.html` for the logo/font specimen. Preserve proportions; do not stretch or add effects. PNG raster artwork only; no editable vector master is included. Reversed-white generation attempts had visible artifacts and were excluded.
+Open `preview.html` for the logo/font specimen. Preserve proportions; do not stretch or add effects. PNG raster artwork only; no editable vector master is included.
 
 The ZIP beside this folder contains the same pack. `manifest.json` records file dimensions, SHA-256 hashes and provenance. No website deployment or signature defaults are changed by this pack itself.

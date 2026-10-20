@@ -4,3 +4,4 @@
 *.md text eol=lf
 *.mjs text eol=lf
 *.yml text eol=lf
+brand/logo-pack/** text=auto eol=lf

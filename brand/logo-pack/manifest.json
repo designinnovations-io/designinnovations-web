@@ -9,8 +9,8 @@
   "files": [
     {
       "file": "fonts/fonts.css",
-      "bytes": 471,
-      "sha256": "173f944a500bc9af72bb3faaa9399813684c3337f7ae1fc5a303fc69ca67f30a"
+      "bytes": 469,
+      "sha256": "3c8289e1e2ece5c4eca09eec498277c187f35d8769afab8de62e69e10d59d2e2"
     },
     {
       "file": "fonts/OFL.txt",
@@ -70,8 +70,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 1357,
-      "sha256": "dfde6b01a06ffd03b60b1d49efd1924994f6aea376773d50dab74e3236cab742"
+      "bytes": 1260,
+      "sha256": "3eb5717f2cda927fa523cd00a64b78e48284e4050fba75f5d55ac8075676f120"
     },
     {
       "file": "source/approved-concept-01.png",
