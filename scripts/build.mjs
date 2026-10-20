@@ -128,6 +128,9 @@ const stylesheet = [...helmet.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)]
   .map((match) => match[1].trim())
   .join("\n\n");
 await cp(socialImage, resolve(assetsDir, "og.png"));
+for (const file of ["di-braces.png", "di-logo.png"]) {
+  await cp(resolve("assets", file), resolve(assetsDir, file));
+}
 
 documentHtml = documentHtml.replace(/<helmet>[\s\S]*?<\/helmet>/i, "");
 documentHtml = documentHtml.replace(/<script src="[^"]+"><\/script>/i, "");
@@ -174,6 +177,7 @@ const metadata = `
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#0c0d0f">
   <link rel="canonical" href="${siteUrl}">
+  <link rel="icon" type="image/png" href="/assets/di-braces.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/assets/site.css">
