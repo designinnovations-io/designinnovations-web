@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { applyGraphitePage } from "./graphite.mjs";
 
 const [inputArg, outputArg = "index.html"] = process.argv.slice(2);
 
@@ -145,6 +146,9 @@ const paletteChanges = [
 for (const [search, replacement, expectedCount] of paletteChanges) {
   page = replaceExact(page, search, replacement, expectedCount);
 }
+
+// Keep the whole page on the dark Graphite palette (see scripts/graphite.mjs).
+page = applyGraphitePage(page);
 
 writeFileSync(outputPath, page, "utf8");
 console.log(`Prepared ${outputPath} from ${inputPath}`);
