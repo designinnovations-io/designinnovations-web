@@ -25,4 +25,4 @@ The production-ready files are written to `dist/`. A push to `main` deploys that
 node scripts/prepare-page.mjs "C:\path\to\Design Innovations.html" index.html
 ```
 
-The importer applies the production metadata and the warmer, lower-glare light palette before writing the deployable page.
+The importer applies the production metadata and then the dark Graphite palette (`scripts/graphite.mjs`) before writing the deployable page. Graphite replaces the light paper sections with the design system's dark surfaces and sets labels in JetBrains Mono.

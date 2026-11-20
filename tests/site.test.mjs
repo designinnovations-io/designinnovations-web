@@ -13,9 +13,12 @@ test("the source bundle has deployable content", () => {
   assert.match(template, /id="approach"/);
   assert.match(template, /id="contact"/);
   assert.match(template, /href="mailto:chris@designinnovations\.io"/);
-  assert.match(template, /--paper:#ddd8ce/);
-  assert.match(template, /background:#f1eee7/);
-  assert.match(template, /background:#ece8df/);
+  assert.match(template, /--paper:#14161b/);
+  assert.match(template, /--label:'JetBrains Mono'/);
+  assert.match(template, /data-graphite="1"/);
+  assert.doesNotMatch(template, /\{\{ ?(accent|labelStack) ?\}\}/);
+  assert.doesNotMatch(template, /#ddd8ce|#f1eee7|#ece8df|#f0ece4/);
+  assert.doesNotMatch(template, /data-nav="light"/);
   assert.doesNotMatch(template, /--paper:#f4f3ee/);
   assert.doesNotMatch(template, /PIXI\.js/);
   assert.equal((template.match(/GSAP/g) || []).length, 3);
